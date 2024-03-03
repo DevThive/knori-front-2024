@@ -1,14 +1,14 @@
-'use client';
-import NextTopLoader from 'nextjs-toploader';
-import { useEffect } from 'react';
-import './styles/styles.css';
-import './assets/css/all.css';
-import './assets/css/meanmenu.min.css';
-import './assets/sass/style.css';
+"use client";
+import NextTopLoader from "nextjs-toploader";
+import { useEffect } from "react";
+import "./styles/styles.css";
+import "./assets/css/all.css";
+import "./assets/css/meanmenu.min.css";
+import "./assets/sass/style.css";
 
 export default function RootLayout({ children }) {
   useEffect(() => {
-    require('bootstrap/dist/js/bootstrap.min.js');
+    require("bootstrap/dist/js/bootstrap.min.js");
   }, []);
   return (
     <html lang="en">

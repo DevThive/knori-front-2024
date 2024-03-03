@@ -10,7 +10,7 @@
 // import Testimonial from './testimonial/testimonial';
 // import Videoarea from './videoarea/videoarea';
 // import SEO from '@/components/seo';
-import Home2 from './home-two/page';
+import Home2 from "./home-two/page";
 
 export default function Home() {
   return (

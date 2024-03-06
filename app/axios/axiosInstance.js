@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://15.165.243.75:4000",
+  baseURL: "https://api.knori.or.kr",
 });
 
 export default instance;

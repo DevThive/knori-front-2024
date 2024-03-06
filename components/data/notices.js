@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function noticeData() {
   try {
-    const response = await axios.get("http://15.165.243.75:4000/notices");
+    const response = await axios.get("https://api.knori.or.kr/notices");
     const data = response.data;
 
     // 데이터 가공

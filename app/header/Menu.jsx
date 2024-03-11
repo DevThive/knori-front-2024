@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Fragment } from 'react';
+import Link from "next/link";
+import { Fragment } from "react";
 export const Home = () => (
   <Fragment>
     <li>
@@ -24,12 +24,12 @@ export const Page = () => (
     <li>
       <Link href="/notice">공지사항</Link>
     </li>
-    <li>
+    {/* <li>
       <Link href="/services-details">Services Details</Link>
     </li>
     <li>
       <Link href="/404-error">404 Page</Link>
-    </li>
+    </li> */}
   </Fragment>
 );
 export const Room = () => (
@@ -38,14 +38,14 @@ export const Room = () => (
       <Link href="/class-list">클래스 소개</Link>
     </li>
     <li>
-      <Link href="/room-modern">클래스 예약</Link>
+      <Link href="/reservation">클래스 예약</Link>
     </li>
     <li>
       <Link href="/room-list">클래스 리뷰</Link>
     </li>
-    <li>
+    {/* <li>
       <Link href="/room-details">Room Details</Link>
-    </li>
+    </li> */}
   </Fragment>
 );
 export const Blog = () => (

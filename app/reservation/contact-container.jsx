@@ -4,8 +4,15 @@ const Contactcontainer = () => {
   return (
     <>
       <div className="contact__area section-padding pb-0">
-        <div className="container">
-          <div className="col-xl-7 col-lg-7">
+        <div
+          className="container"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div className="col-xl-10 col-lg-8">
             <div className="contact__area-form">
               <h3 className="mb-35">예약하기</h3>
               <form action="#">
@@ -63,7 +70,7 @@ const Contactcontainer = () => {
                       ></textarea>
                     </div>
                   </div>
-                  <div className="col-lg-12">
+                  <div className="col-lg-12 text-end">
                     <div className="contact__area-form-item">
                       <button className="theme-btn" type="submit">
                         예약하기<i className="fal fa-long-arrow-right"></i>

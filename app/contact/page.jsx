@@ -1,22 +1,22 @@
-import SEO from '@/components/seo';
-import BreadCrumb from '../breadcrumb/breadcrumb';
-import Footer from '../footer/footer';
-import HeaderOne from '../header/HeaderOne';
-import ScrollToTopButton from '../scroll-to-top/scrollToTop';
-import Contactcontainer from './contact-container';
+import SEO from "@/components/seo";
+import BreadCrumb from "../breadcrumb/breadcrumb";
+import ScrollToTopButton from "../scroll-to-top/scrollToTop";
+import Contactcontainer from "./contact-container";
+import FooterTwo from "../footer/footerTwo";
+import HeaderTwo from "../header/headerTwo";
 
 const Contact = () => {
   return (
     <>
       <SEO pageTitle="Contact Us" />
-      <HeaderOne />
+      <HeaderTwo />
       <BreadCrumb
-        title="Contact Us"
+        title="문의하기"
         innerTitle="Contact Us"
-        bgImage="/img/banner/page-banner-5.jpg"
+        bgImage="/img/bg/banner-bg.jpg"
       />
       <Contactcontainer />
-      <Footer />
+      <FooterTwo />
       <ScrollToTopButton />
     </>
   );

@@ -1,17 +1,20 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const Social = () => {
   return (
     <>
       <ul>
         <li>
-          <Link href="https://www.facebook.com" target="_blank">
+          <Link
+            href="https://www.facebook.com/profile.php?id=61557296667139"
+            target="_blank"
+          >
             <i className="fab fa-facebook-f"></i>
           </Link>
         </li>
         <li>
-          <Link href="https://twitter.com" target="_blank">
-            <i className="fab fa-twitter"></i>
+          <Link href="https://www.instagram.com/kplaynori/" target="_blank">
+            <i className="fab fa-instagram"></i>
           </Link>
         </li>
         <li>

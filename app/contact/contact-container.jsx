@@ -1,4 +1,4 @@
-import Social from '../socials/page';
+import Social from "../socials/page";
 
 const Contactcontainer = () => {
   return (
@@ -8,7 +8,7 @@ const Contactcontainer = () => {
           <div className="row">
             <div className="col-xl-5 col-lg-5 lg-mb-30">
               <div className="contact__area-title">
-                <h3 className="mb-25">Get In Touch</h3>
+                <h3 className="mb-25">문의 정보</h3>
                 <p>
                   Phasellus nisi sapien, rutrum placerat sapien eu, rhoncus
                   tempus felis. Nulla non pulvinar enim, vel viverra nunc
@@ -55,7 +55,7 @@ const Contactcontainer = () => {
             </div>
             <div className="col-xl-7 col-lg-7">
               <div className="contact__area-form">
-                <h3 className="mb-35">Send Massage</h3>
+                <h3 className="mb-35">문의하기</h3>
                 <form action="#">
                   <div className="row">
                     <div className="col-sm-6 mb-30">
@@ -64,7 +64,7 @@ const Contactcontainer = () => {
                         <input
                           type="text"
                           name="name"
-                          placeholder="Full Name"
+                          placeholder="Name"
                           required="required"
                         />
                       </div>
@@ -75,7 +75,7 @@ const Contactcontainer = () => {
                         <input
                           type="email"
                           name="email"
-                          placeholder="Email Address"
+                          placeholder="Email"
                           required="required"
                         />
                       </div>
@@ -91,7 +91,30 @@ const Contactcontainer = () => {
                         />
                       </div>
                     </div>
-                    <div className="col-sm-6 sm-mb-30">
+                    {/* <div className="col-sm-6 sm-mb-30">
+                      <div className="contact__area-form-item">
+                        <i className="far fa-address-book"></i>
+                        <input
+                          type="text"
+                          name="subject"
+                          placeholder=""
+                          required="required"
+                        />
+                      </div>
+                    </div> */}
+
+                    <div className="col-sm-12 sm-mb-30">
+                      <div className="contact__area-form-item">
+                        <i className="far fa-address-book"></i>
+                        <input
+                          type="text"
+                          name="subject"
+                          placeholder="Contact Title"
+                          required="required"
+                        />
+                      </div>
+                    </div>
+                    {/* <div className="col-sm-12 sm-mb-30">
                       <div className="contact__area-form-item">
                         <i className="far fa-address-book"></i>
                         <input
@@ -101,7 +124,7 @@ const Contactcontainer = () => {
                           required="required"
                         />
                       </div>
-                    </div>
+                    </div> */}
                     <div className="col-sm-12 mb-30">
                       <div className="contact__area-form-item">
                         <i className="far fa-comments"></i>
@@ -114,7 +137,7 @@ const Contactcontainer = () => {
                     <div className="col-lg-12">
                       <div className="contact__area-form-item">
                         <button className="theme-btn" type="submit">
-                          Submit Now<i className="fal fa-long-arrow-right"></i>
+                          문의하기<i className="fal fa-long-arrow-right"></i>
                         </button>
                       </div>
                     </div>

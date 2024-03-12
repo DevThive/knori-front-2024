@@ -1,9 +1,20 @@
-import roomStyleAllBlogs from '@/components/data/room-style-all-blogs';
-import Image from 'next/image';
-import Link from 'next/link';
+import classist from "@/components/data/class-all";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const Deluxe = () => {
-  const roomItem = roomStyleAllBlogs.slice(0, 3);
+const Mainclass = () => {
+  const [classes, setClasses] = useState([]); // 상태 추가
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await classist();
+      setClasses(data);
+    };
+    fetchData();
+  }, []);
+
+  const classItem = classes.reverse().slice(0, 3);
   return (
     <div className="deluxe__three section-padding">
       <div className="container">
@@ -23,29 +34,38 @@ const Deluxe = () => {
           </div>
         </div>
         <div className="row">
-          {roomItem.map((item, index) => (
+          {classItem.map((item, index) => (
             <div key={index} className="col-xl-4 col-lg-6 col-md-6 mt-30">
-              <div className={`deluxe__three-item ${item.cl}`}>
-                <div className="deluxe__three-item-image">
+              <div
+                className={`deluxe__three-item ${index === 1 ? "center" : ""}`}
+              >
+                <div
+                  className="deluxe__three-item-image"
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "400px",
+                  }}
+                >
                   <Image
-                    src={item.image}
+                    src={item.photo}
                     alt={item.title}
-                    width={500}
-                    height={500}
+                    layout="fill"
+                    objectFit="cover"
                   />
                   <div className="deluxe__three-item-image-content">
                     <h4>
                       <a href="/room-details">{item.title}</a>
-                      <span>${item.price}/Night</span>
+                      <span>$32/Night</span>
                     </h4>
-                    <p>{item.des}</p>
+                    <p>{item.content}</p>
                     <div className="deluxe__three-item-image-content-meta">
                       <ul>
                         <li>
-                          <i className="fal fa-bed-alt"></i> ({item.bed}) bed's
+                          <i className="fal fa-bed-alt"></i> bed's
                         </li>
                         <li>
-                          <i className="fal fa-users"></i> ({item.guest})
+                          <i className="fal fa-users"></i>
                           Guest's
                         </li>
                       </ul>
@@ -69,4 +89,4 @@ const Deluxe = () => {
   );
 };
 
-export default Deluxe;
+export default Mainclass;

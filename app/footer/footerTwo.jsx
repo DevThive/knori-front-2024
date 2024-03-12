@@ -1,9 +1,37 @@
-import Link from 'next/link';
-import React from 'react';
-import Social from '../socials/page';
-import footerOne from '@/components/data/footerOne';
+import Link from "next/link";
+import React from "react";
+import Social from "../socials/page";
+import footerOne from "@/components/data/footerOne";
+import instance from "../axios/axiosInstance";
 
 const FooterTwo = () => {
+  // const [recentPosts, setRecentPosts] = useState([]);
+
+  // useEffect(() => {
+  //   // API 요청 보내기
+  //   instance
+  //     .get("/notices")
+  //     .then((response) => {
+  //       // API 응답 받기
+  //       setRecentPosts(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
+  // const [notices, setNotices] = useState([]); // 상태 추가
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const data = await noticeData();
+  //     setNotices(data);
+  //   };
+  //   fetchData();
+  // }, []);
+
+  // const blogItem = notices.reverse().slice(0, 3);
+
   return (
     <>
       <div className="footer__two">
@@ -47,6 +75,26 @@ const FooterTwo = () => {
                 </div>
               </div>
             </div>
+            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 sm-mb-30">
+              <div className="footer__two-widget">
+                <h5>최근 게시글</h5>
+                <div className="footer__two-widget-post">
+                  {recentPosts.map((post) => (
+                    <div className="footer__two-widget-post-item" key={post.id}>
+                      <span>
+                        <i className="fal fa-calendar-check"></i>
+                        {post.date}
+                      </span>
+                      <h6>
+                        <Link href={`/blog-details/${post.id}`}>
+                          {post.title}
+                        </Link>
+                      </h6>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div> */}
             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 sm-mb-30">
               <div className="footer__two-widget">
                 <h5>최근 게시글</h5>
@@ -103,9 +151,9 @@ const FooterTwo = () => {
                   <p>
                     Copyright © 2023
                     <a href="https://themeforest.net/user/themeori/portfolio">
-                      {' '}
+                      {" "}
                       ThemeOri
-                    </a>{' '}
+                    </a>{" "}
                     Website by<Link href="/"> Hostily</Link>
                   </p>
                 </div>

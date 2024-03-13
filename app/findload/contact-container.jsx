@@ -1,4 +1,4 @@
-import Social from '../socials/page';
+import Social from "../socials/page";
 
 const Contactcontainer = () => {
   return (
@@ -8,12 +8,12 @@ const Contactcontainer = () => {
           <div className="row">
             <div
               className="col-xl-5 col-lg-5 lg-mb-30"
-              style={{ marginTop: '120px' }}
+              style={{ marginTop: "120px" }}
             >
               <div className="contact__area-title">
                 <h3 className="mb-25">오시는 길</h3>
                 <p>
-                  경기도 양주시 백석읍 기산로 548 케이놀이문화재단 (주)
+                  경기도 양주시 백석읍 기산로 548 케이놀이문화재단 (재)
                   케이놀이재단
                 </p>
               </div>
@@ -25,7 +25,7 @@ const Contactcontainer = () => {
                   <div className="contact__area-info-item-content">
                     <span>문의 전화</span>
                     <h6>
-                      <a href="tel:+123(458)896895">+123 ( 458 ) 896 895</a>
+                      <a href="tel:+123(458)896895">업데이트 예정</a>
                     </h6>
                   </div>
                 </div>
@@ -36,7 +36,9 @@ const Contactcontainer = () => {
                   <div className="contact__area-info-item-content">
                     <span>문의 이메일</span>
                     <h6>
-                      <a href="mailto:support@gamil.com">support@gamil.com</a>
+                      <a href="mailto:knori2024@gamil.com">
+                        knori2024@gamil.com
+                      </a>
                     </h6>
                   </div>
                 </div>
@@ -59,7 +61,7 @@ const Contactcontainer = () => {
             <div className="col-xl-7 col-lg-7">
               <div className="contact__area-map section-padding">
                 <iframe
-                  style={{ filter: 'none' }}
+                  style={{ filter: "none" }}
                   // width="600"
                   // height="450"
                   // style="border:0"

@@ -1,36 +1,23 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import Social from "../socials/page";
 import footerOne from "@/components/data/footerOne";
-import instance from "../axios/axiosInstance";
+import noticeData from "@/components/data/notices";
+import { useState, useEffect } from "react";
 
 const FooterTwo = () => {
-  // const [recentPosts, setRecentPosts] = useState([]);
+  const [notices, setNotices] = useState([]); // 상태 추가
 
-  // useEffect(() => {
-  //   // API 요청 보내기
-  //   instance
-  //     .get("/notices")
-  //     .then((response) => {
-  //       // API 응답 받기
-  //       setRecentPosts(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await noticeData();
+      setNotices(data);
+    };
+    fetchData();
+  }, []);
 
-  // const [notices, setNotices] = useState([]); // 상태 추가
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const data = await noticeData();
-  //     setNotices(data);
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // const blogItem = notices.reverse().slice(0, 3);
+  const currentNoticeItems = notices.slice(0, 3);
 
   return (
     <>
@@ -46,11 +33,11 @@ const FooterTwo = () => {
                     </Link>
                   </div>
                   <p>
-                    (재) 케이놀이문화재단 대표이사 : 김봉현 <br />
-                    본사 : 경기도 여주시 북내면 가정 1길 62 <br /> 서울사업본부
-                    : 서울특별시 강남구 청담동 도산대로 445 2층 <br />
-                    Tel : 031-881-5525 Fax : 031-881-2545 <br />
-                    E-mail : yido@yido.kr
+                    (재) 케이놀이문화재단 대표이사 : 김봉현, 박연희 <br />
+                    체험장 : 경기도 양주시 기산로 548 <br /> 본사 : 서울 송파구
+                    위례성대로 18. 9층 <br />
+                    Tel : 업데이트예정 Fax : 업데이트예정 <br />
+                    E-mail : knori2024@gmail.com
                   </p>
                   <div className="footer__two-widget-about-social">
                     <Social />
@@ -75,50 +62,24 @@ const FooterTwo = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 sm-mb-30">
+
+            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 sm-mb-30">
               <div className="footer__two-widget">
-                <h5>최근 게시글</h5>
+                <h5>최근글</h5>
                 <div className="footer__two-widget-post">
-                  {recentPosts.map((post) => (
-                    <div className="footer__two-widget-post-item" key={post.id}>
+                  {currentNoticeItems?.map((data, id) => (
+                    <div className="footer__two-widget-post-item">
                       <span>
                         <i className="fal fa-calendar-check"></i>
-                        {post.date}
+                        {data.year} - {data.month}
                       </span>
                       <h6>
-                        <Link href={`/blog-details/${post.id}`}>
-                          {post.title}
+                        <Link href={`/notice-details/${data.id}`}>
+                          {data.title}
                         </Link>
                       </h6>
                     </div>
                   ))}
-                </div>
-              </div>
-            </div> */}
-            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 sm-mb-30">
-              <div className="footer__two-widget">
-                <h5>최근 게시글</h5>
-                <div className="footer__two-widget-post">
-                  <div className="footer__two-widget-post-item">
-                    <span>
-                      <i className="fal fa-calendar-check"></i>20 June, 2023
-                    </span>
-                    <h6>
-                      <Link href="/blog-details/1">
-                        The best architecture is competition
-                      </Link>
-                    </h6>
-                  </div>
-                  <div className="footer__two-widget-post-item">
-                    <span>
-                      <i className="fal fa-calendar-check"></i>29 June, 2023
-                    </span>
-                    <h6>
-                      <Link href="/blog-details/2">
-                        The best architecture is competition
-                      </Link>
-                    </h6>
-                  </div>
                 </div>
               </div>
             </div>

@@ -1,8 +1,8 @@
-'use client';
-import noticeData from '@/components/data/notices';
-import { useState, useEffect } from 'react';
-import Currentblogitems from './current-blog-items';
-import Paginations from './paginations';
+"use client";
+import noticeData from "@/components/data/notices";
+import { useState, useEffect } from "react";
+import Currentblogitems from "./current-blog-items";
+import Paginations from "./paginations";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -21,7 +21,7 @@ const Bloggridcontainer = () => {
   const totalPages = Math.ceil(notices.length / ITEMS_PER_PAGE);
   const startIndex = currentPage * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentBlogItems = notices.slice(startIndex, endIndex).reverse();
+  const currentBlogItems = notices.slice(startIndex, endIndex);
 
   const handleNextPage = () => {
     if (currentPage < totalPages - 1) {

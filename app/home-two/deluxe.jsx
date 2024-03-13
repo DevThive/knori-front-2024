@@ -55,28 +55,19 @@ const Mainclass = () => {
                   />
                   <div className="deluxe__three-item-image-content">
                     <h4>
-                      <a href="/room-details">{item.title}</a>
-                      <span>$32/Night</span>
+                      <a href={`/class-details/${item.id}`}>{item.title}</a>
                     </h4>
-                    <p>{item.content}</p>
-                    <div className="deluxe__three-item-image-content-meta">
-                      <ul>
-                        <li>
-                          <i className="fal fa-bed-alt"></i> bed's
-                        </li>
-                        <li>
-                          <i className="fal fa-users"></i>
-                          Guest's
-                        </li>
-                      </ul>
-                    </div>
+                    <h5>
+                      <span>25,000원/1인</span>
+                    </h5>
+
                     <div className="deluxe__three-item-image-content-bottom">
-                      <Link className="simple-btn" href="/room-details">
+                      <a
+                        className="simple-btn"
+                        href={`/class-details/${item.id}`}
+                      >
                         <i className="far fa-chevron-right"></i> 자세히보기
-                      </Link>
-                      <p>
-                        <i className="fas fa-star"></i> <span>4.8</span>2k
-                      </p>
+                      </a>
                     </div>
                   </div>
                 </div>

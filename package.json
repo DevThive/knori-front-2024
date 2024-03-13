@@ -32,6 +32,7 @@
     "react-modal-video": "^2.0.1",
     "react-responsive-carousel": "^3.2.23",
     "sass": "^1.67.0",
+    "sharp": "^0.33.2",
     "swiper": "^10.2.0"
   }
 }

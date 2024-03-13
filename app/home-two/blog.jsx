@@ -12,7 +12,7 @@ const Blog = () => {
     fetchData();
   }, []);
 
-  const blogItem = notices.reverse().slice(0, 3);
+  const blogItem = notices.slice(0, 3);
 
   const handleImageError = (event) => {
     event.target.src = "/img/blog/blog-3.jpg"; // 기본 이미지 URL로 변경

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getInstagramContents from "@/components/data/instadata";
+import instagramcontain from "@/components/data/instadata";
 import { useState, useEffect } from "react";
 
 // const instagram = [
@@ -34,7 +34,7 @@ const Instagram = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getInstagramContents();
+      const data = await instagramcontain();
       setInstagramData(data);
     };
     fetchData();

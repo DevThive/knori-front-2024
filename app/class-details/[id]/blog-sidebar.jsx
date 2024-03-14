@@ -1,18 +1,18 @@
-import noticeData from "@/components/data/notices";
+import classist from "@/components/data/class-all";
 import { useState, useEffect } from "react";
 
 const BlogSideBar = () => {
-  const [notices, setNotices] = useState([]); // 상태 추가
+  const [classData, setClassesData] = useState([]); // 상태 추가
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await noticeData();
-      setNotices(data);
+      const data = await classist();
+      setClassesData(data);
     };
     fetchData();
   }, []);
 
-  const currentNoticeItems = notices.slice(0, 3);
+  const currentClassItems = classData.slice(0, 3);
 
   return (
     <div className="col-xxl-3 col-xl-4 col-lg-4">
@@ -30,9 +30,9 @@ const BlogSideBar = () => {
           <div className="all__sidebar-item-category">
             <ul>
               <li>
-                <a href="/notice">
-                  <i className="far fa-angle-double-right"></i>공지사항
-                  <span>{notices.length}</span>
+                <a href="/class-list">
+                  <i className="far fa-angle-double-right"></i>클래스
+                  <span>{classData.length}</span>
                 </a>
               </li>
             </ul>
@@ -41,7 +41,7 @@ const BlogSideBar = () => {
         <div className="all__sidebar-item">
           <h5>최신글</h5>
           <div className="all__sidebar-item-post">
-            {currentNoticeItems?.map((data, id) => (
+            {currentClassItems?.map((data, id) => (
               <div key={id} className="all__sidebar-item-post-item">
                 {" "}
                 {/* key를 추가하고, Fragment 대신 div 사용 */}
@@ -53,10 +53,11 @@ const BlogSideBar = () => {
                 <div className="all__sidebar-item-post-item-content">
                   <span>
                     <i className="fal fa-calendar-alt"></i>
-                    {data.year} - {data.month}
+                    {new Date(data.createdAt).getFullYear()} -{" "}
+                    {new Date(data.createdAt).getMonth() + 1}
                   </span>
                   <h6>
-                    <a href={`/notice-details/${data.id}`}>{data.title}</a>
+                    <a href={`/class-details/${data.id}`}>{data.title}</a>
                   </h6>
                 </div>
               </div>

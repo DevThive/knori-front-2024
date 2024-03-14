@@ -1,12 +1,14 @@
-import Social from '@/app/socials/page';
-import Link from 'next/link';
-import React from 'react';
+import Social from "@/app/socials/page";
+import Link from "next/link";
+import React from "react";
 
 const SideBar = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <div
-        className={`header__area-menubar-right-sidebar-popup three ${isOpen ? 'active' : ''}`}
+        className={`header__area-menubar-right-sidebar-popup three ${
+          isOpen ? "active" : ""
+        }`}
       >
         <div className="sidebar-close-btn" onClick={() => setIsOpen(false)}>
           <i className="fal fa-times"></i>
@@ -17,9 +19,10 @@ const SideBar = ({ isOpen, setIsOpen }) => {
           </Link>
         </div>
         <p>
-          Morbi et tellus imperdiet, aliquam nulla sed, dapibus erat. Aenean
-          dapibus sem non purus venenatis vulputate. Donec accumsan eleifend
-          blandit. Nullam auctor ligula
+          케이놀이문화재단은 수백 년 전통 놀이를 현대적으로 재해석하여 힐링
+          공간을 제공합니다. 전통과 현대가 어우러진 체험을 통해 방문객들은
+          영감을 얻고, 모든 사람이 문화를 향유할 수 있는 기회를 마련합니다.
+          이곳은 전통 속에서 현대적 감성을 발견하며 마음의 안식을 찾는 곳입니다.
         </p>
         <div className="header__area-menubar-right-box-sidebar-popup-image">
           <img src="/img/bar.jpg" alt="" />
@@ -33,7 +36,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
             <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
               <span>Call Now</span>
               <h6>
-                <Link href="tel:+125(895)658568">+125 (895) 658 568</Link>
+                <Link href="tel:+125(895)658568"> 업데이트 예정 </Link>
               </h6>
             </div>
           </div>
@@ -44,8 +47,8 @@ const SideBar = ({ isOpen, setIsOpen }) => {
             <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
               <span>Quick Email</span>
               <h6>
-                <Link href="mailto:info.help@gmail.com">
-                  info.help@gmail.com
+                <Link href="mailto:knori2024@gmail.com">
+                  knori2024@gmail.com
                 </Link>
               </h6>
             </div>
@@ -58,7 +61,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
               <span>Office Address</span>
               <h6>
                 <Link href="https://www.google.com/maps">
-                  PV3M+X68 Welshpool United Kingdom
+                  경기도 양주시 백석읍 기산로 548
                 </Link>
               </h6>
             </div>
@@ -68,7 +71,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
           <Social />
         </div>
       </div>
-      <div className={`sidebar-overlay ${isOpen ? 'show' : ''}`}></div>
+      <div className={`sidebar-overlay ${isOpen ? "show" : ""}`}></div>
     </>
   );
 };

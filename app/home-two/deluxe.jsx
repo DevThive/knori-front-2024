@@ -14,7 +14,7 @@ const Mainclass = () => {
     fetchData();
   }, []);
 
-  const classItem = classes.reverse().slice(0, 3);
+  const classItem = classes.slice(0, 3);
   return (
     <div className="deluxe__three section-padding">
       <div className="container">
@@ -27,7 +27,7 @@ const Mainclass = () => {
           </div>
           <div className="col-xl-6 col-lg-6 col-md-4">
             <div className="deluxe__three-right">
-              <Link className="theme-btn" href="/about">
+              <Link className="theme-btn" href="/class-list">
                 자세히보기<i className="fal fa-long-arrow-right"></i>
               </Link>
             </div>

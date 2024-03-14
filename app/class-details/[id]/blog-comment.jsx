@@ -1,10 +1,10 @@
-const Blogcomment = ({ blogsData }) => {
-  const createdAtDate = new Date(blogsData.createdAt);
+const Blogcomment = ({ classData }) => {
+  const createdAtDate = new Date(classData.createdAt);
   return (
     <div className="col-xxl-9 col-xl-8 col-lg-8 lg-mb-30">
       <div className="blog__details-left">
         <div className="blog__details-left-meta">
-          <h3 className="mb-20">{blogsData.content_name}</h3>
+          <h3 className="mb-20">{classData.title}</h3>
           <div className="text-end">
             <ul>
               <li>
@@ -25,11 +25,11 @@ const Blogcomment = ({ blogsData }) => {
 
         <img
           style={{ height: "400px", objectFit: "cover" }}
-          src={blogsData.photo}
+          src={classData.photo}
           alt=""
         />
         <div className="blog__details-left-meta"></div>
-        <p className="mb-25">{blogsData.content}</p>
+        <p className="mb-25">{classData.content}</p>
         {/* <p>
           Nulla at eleifend lorem. Praesent et ex sed metus egestas feugiat.
           Donec velit libero, feugiat ac dictum vel, dignissim id ante. Praesent

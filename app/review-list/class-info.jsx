@@ -3,7 +3,6 @@ import classist from "@/components/data/class-all";
 import { useState, useEffect } from "react";
 import Paginations from "./paginations";
 import Casino from "./current-class-items";
-import instadata from "@/components/data/instadata";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -14,7 +13,6 @@ const Classcontainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await classist();
-      const test = await instadata();
       setClasses(data);
     };
     fetchData();
@@ -41,7 +39,6 @@ const Classcontainer = () => {
     <>
       <div className="blog__grid section-padding" id="blog-grid">
         <Casino currentClassItems={currentClassItems} />
-
         <div className="container">
           <Paginations
             currentPage={currentPage}

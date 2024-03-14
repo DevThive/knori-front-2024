@@ -34,7 +34,7 @@ const Classdetailscontainer = () => {
       <div className="blog__details section-padding">
         <div className="container">
           <div className="row">
-            <Blogcomment blogsData={classData} />
+            <Blogcomment classData={classData} />
             <BlogSideBar />
           </div>
         </div>

@@ -15,7 +15,7 @@ import Place from "./place";
 const Home2 = () => {
   return (
     <>
-      <SEO pageTitle="K-PLAY" />
+      <SEO pageTitle="케이놀이문화재단" />
       <HeaderTwo />
       <Banner />
       <Companyarea />

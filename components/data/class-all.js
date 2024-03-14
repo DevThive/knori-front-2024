@@ -6,6 +6,8 @@ async function classlist() {
     const response = await axios.get("https://api.knori.or.kr/class");
     const data = response.data;
 
+    data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     const formattedData = data.map((item) => {
       const createdAtDate = new Date(item.createdAt);
       return {
@@ -14,6 +16,7 @@ async function classlist() {
         content: item.content,
         photo: item.photo,
         state: "미정",
+        createdAt: item.createdAt,
       };
     });
 

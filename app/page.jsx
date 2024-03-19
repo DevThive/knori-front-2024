@@ -32,7 +32,7 @@ export default function Home() {
       <Testimonial />
       <Blog />
       <Footer />
-      <ScrollToTopButton /> */}
+      <ScrollToTopButton /> .*/}
     </>
   );
 }

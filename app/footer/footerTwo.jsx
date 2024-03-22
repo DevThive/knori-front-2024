@@ -111,11 +111,8 @@ const FooterTwo = () => {
                 <div className="copyright__two-title">
                   <p>
                     Copyright © 2023
-                    <a href="https://themeforest.net/user/themeori/portfolio">
-                      {" "}
-                      ThemeOri
-                    </a>{" "}
-                    Website by<Link href="/"> Hostily</Link>
+                    <a href="#"> </a> Website by
+                    <Link href="/">K-PLAY CULTURE</Link>
                   </p>
                 </div>
               </div>

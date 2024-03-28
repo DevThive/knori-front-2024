@@ -11,23 +11,13 @@
 // import Videoarea from './videoarea/videoarea';
 // import SEO from '@/components/seo';
 import Home2 from "./home-two/page";
+import Analytics from "./googleAnalyties/googleApi";
 
 export default function Home() {
   return (
     <>
       <Home2 />
-      {/* <SEO pageTitle="Home Default" />
-      <HeaderTwo />
-      <Banner />
-      <Accommodations />
-      <Deluxe />
-      <Videoarea />
-      <Services />
-      <Feature />
-      <Testimonial />
-      <Blog />
-      <Footer />
-      <ScrollToTopButton /> */}
+      <Analytics />
     </>
   );
 }

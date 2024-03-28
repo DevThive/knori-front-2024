@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import instance from '@/app/axios/axiosInstance';
-import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import Blogcomment from './blog-comment';
-import BlogSideBar from './blog-sidebar';
+import instance from "@/app/axios/axiosInstance";
+import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import Blogcomment from "./blog-comment";
+import BlogSideBar from "./blog-sidebar";
 
 const Blogdetailscontainer = () => {
   const params = useParams();
@@ -16,9 +16,10 @@ const Blogdetailscontainer = () => {
       try {
         const response = await instance.get(`/notices/${params.id}`);
         console.log(response.data);
+
         setNoticeData(response.data);
       } catch (error) {
-        router.push('/404-error');
+        router.push("/404-error");
       }
     };
 

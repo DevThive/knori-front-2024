@@ -11,11 +11,12 @@ async function noticeData() {
     // 데이터 가공
     const formattedData = data.map((item) => {
       const createdAtDate = new Date(item.createdAt);
+      const pureImageUrl = item.photo.replace(/[\[\]\"\\]/g, "");
       return {
         id: item.id,
-        img: item.photo,
-        img1: item.photo,
-        img2: item.photo,
+        img: pureImageUrl,
+        img1: pureImageUrl,
+        img2: pureImageUrl,
         date: createdAtDate.getDate(),
         month: createdAtDate.getMonth() + 1, // 월은 0부터 시작하므로 1을 더해줍니다.
         year: createdAtDate.getFullYear(),

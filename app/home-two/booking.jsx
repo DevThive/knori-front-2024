@@ -11,24 +11,24 @@ const Booking = () => {
     setSelectedClassId(selectedClassId);
   };
 
-  useEffect(() => {
-    const fetchClassSchedules = async () => {
-      try {
-        if (selectedClassId) {
-          const response = await axios.get(
-            `/class-schedule/${selectedClassId}`
-          );
-          setClassSchedules(response.data);
-        } else {
-          setClassSchedules([]);
-        }
-      } catch (error) {
-        console.error("Error fetching class schedules:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchClassSchedules = async () => {
+  //     try {
+  //       if (selectedClassId) {
+  //         const response = await axios.get(
+  //           `/class-schedule/${selectedClassId}`
+  //         );
+  //         setClassSchedules(response.data);
+  //       } else {
+  //         setClassSchedules([]);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching class schedules:", error);
+  //     }
+  //   };
 
-    fetchClassSchedules();
-  }, [selectedClassId]);
+  //   fetchClassSchedules();
+  // }, [selectedClassId]);
 
   return (
     <div

@@ -9,12 +9,13 @@ async function classlist() {
     data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     const formattedData = data.map((item) => {
+      const pureImageUrl = item.photo.replace(/[\[\]\"\\]/g, "");
       const createdAtDate = new Date(item.createdAt);
       return {
         id: item.id,
         title: item.title,
         content: item.content,
-        photo: item.photo,
+        photo: pureImageUrl,
         state: "미정",
         createdAt: item.createdAt,
       };

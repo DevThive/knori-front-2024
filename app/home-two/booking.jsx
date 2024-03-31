@@ -1,4 +1,36 @@
+import ClassSelector from "../class/class-selector";
+import React, { useEffect, useState } from "react";
+import instance from "@/app/axios/axiosInstance";
+
 const Booking = () => {
+  const [selectedSchedule, setSelectedSchedule] = useState("");
+  const [classSchedules, setClassSchedules] = useState([]);
+  const [selectedClassId, setSelectedClassId] = useState("");
+
+  const handleClassSelect = (selectedClassId) => {
+    setSelectedClassId(selectedClassId);
+    console.log(selectedClassId);
+  };
+
+  useEffect(() => {
+    const fetchClassSchedules = async () => {
+      try {
+        if (selectedClassId) {
+          const response = await instance.get(
+            `/class-schedule/${selectedClassId}`
+          );
+          setClassSchedules(response.data);
+        } else {
+          setClassSchedules([]);
+        }
+      } catch (error) {
+        console.error("Error fetching class schedules:", error);
+      }
+    };
+
+    fetchClassSchedules();
+  }, [selectedClassId]);
+
   return (
     <div
       className="booking__two section-padding"
@@ -8,8 +40,8 @@ const Booking = () => {
         <div className="row mb-60">
           <div className="col-xl-12">
             <div className="booking__two-title">
-              <span className="subtitle__one">Booking Aria</span>
-              <h2>Find the best hotels in Your area</h2>
+              <span className="subtitle__one">Reservation Aria</span>
+              <h2>나에게 맞는 도자기 클래스 선택하기</h2>
             </div>
           </div>
         </div>
@@ -19,105 +51,46 @@ const Booking = () => {
               <div className="check__area two">
                 <div className="check__area-item">
                   <p>
-                    Check In
-                    <input id="date" type="date" />
+                    총 인원수 <input id="date" type="number" min="1" />
                   </p>
                 </div>
+                <ClassSelector onClassSelect={handleClassSelect} />
                 <div className="check__area-item">
                   <p>
-                    Check Out
-                    <input id="date2" type="date" />
+                    날짜 선택 <input id="date" type="date" />
                   </p>
                 </div>
                 <div className="check__area-item">
-                  <div className="check__area-item-room">
-                    <p>Room</p>
-                    <select name="select">
-                      <option value="1">1 Room</option>
-                      <option value="2">2 Room</option>
-                      <option value="3">3 Room</option>
-                      <option value="4">4 Room</option>
-                      <option value="5">5 Room</option>
-                    </select>
-                  </div>
+                  <p>시간 선택</p>
+                  <select
+                    id="time"
+                    value={selectedSchedule}
+                    onChange={(e) => setSelectedSchedule(e.target.value)}
+                  >
+                    <option value="">시간을 선택하세요</option>
+                    {classSchedules.map((schedule) => (
+                      <option key={schedule.id} value={schedule.time}>
+                        {schedule.time}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <div className="check__area-item button">
                   <button className="theme-btn" type="submit">
-                    Check Now
+                    예약 진행하기
                   </button>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        <div className="row mt-100">
-          <div className="col-xl-4 col-lg-6">
-            <div className="room__area-title">
-              <span className="subtitle__one">Our Features</span>
-              <h2>Single Room</h2>
-              <p>
-                Phasellus semper vehicula eros, non ultricies neque rhoncus sed.
-                Morbi aliquam ex in dui aliquet consectetur. Fusce pellentesque
-                turpis ut lorem elementum commodo.
-              </p>
-              <div className="room__area-title-contact">
-                <div className="room__area-title-contact-icon">
-                  <i className="fal fa-phone-alt"></i>
-                </div>
-                <div className="room__area-title-contact-content">
-                  <span>
-                    <a href="tel:+123(458)585568">+123 (458) 585 568</a>
-                  </span>
-                </div>
-              </div>
+        {selectedClassId && (
+          <div className="row mt-100">
+            <div className="col-xl-12">
+              <h3>선택된 클래스: {selectedClassId}</h3>
             </div>
           </div>
-          <div className="col-xl-4 order-last order-lg-second">
-            <div className="room__area-image">
-              <img src="/img/hotel/hotel-5.jpg" alt="" />
-            </div>
-          </div>
-          <div className="col-xl-4 col-lg-6 xl-mb-30">
-            <div className="room__area-list">
-              <div className="room__area-list-item">
-                <div className="room__area-list-item-icon">
-                  <img src="/img/icon/key.png" alt="" />
-                </div>
-                <div className="room__area-list-item-content">
-                  <h5>Smart Key</h5>
-                  <p>
-                    Phasellus semper vehicula eros, non ultricies neque rhoncus
-                    sed
-                  </p>
-                </div>
-              </div>
-              <div className="room__area-list-item">
-                <div className="room__area-list-item-icon">
-                  <img src="/img/icon/breakfast.png" alt="" />
-                </div>
-                <div className="room__area-list-item-content">
-                  <h5>Breakfast</h5>
-                  <p>
-                    Phasellus semper vehicula eros, non ultricies neque rhoncus
-                    sed
-                  </p>
-                </div>
-              </div>
-              <div className="room__area-list-item">
-                <div className="room__area-list-item-icon">
-                  <img src="/img/icon/wifi-1.png" alt="" />
-                </div>
-                <div className="room__area-list-item-content">
-                  <h5>Home Wifi</h5>
-                  <p>
-                    Phasellus semper vehicula eros, non ultricies neque rhoncus
-                    sed
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

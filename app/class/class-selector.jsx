@@ -3,10 +3,12 @@ import axios from "axios";
 import instance from "@/app/axios/axiosInstance";
 import { useRouter } from "next/navigation";
 
-const ClassSelector = () => {
+const ClassSelector = (props) => {
   const [classList, setClassList] = useState([]);
   const [selectedClass, setSelectedClass] = useState("");
   const router = useRouter();
+
+  console.log(props.onClassSelect);
 
   useEffect(() => {
     const fetchClassList = async () => {
@@ -23,7 +25,9 @@ const ClassSelector = () => {
   }, [router]);
 
   const handleClassChange = (e) => {
-    setSelectedClass(e.target.value); // 선택한 클래스 업데이트
+    // console.log(e.target.value);
+    props.onClassSelect(e.target.value); // 선택한 클래스 업데이트
+    setSelectedClass(e.target.value);
   };
 
   return (

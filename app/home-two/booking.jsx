@@ -1,6 +1,6 @@
 import ClassSelector from "../class/class-selector";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import instance from "@/app/axios/axiosInstance";
 
 const Booking = () => {
   const [selectedSchedule, setSelectedSchedule] = useState("");
@@ -9,26 +9,27 @@ const Booking = () => {
 
   const handleClassSelect = (selectedClassId) => {
     setSelectedClassId(selectedClassId);
+    console.log(selectedClassId);
   };
 
-  // useEffect(() => {
-  //   const fetchClassSchedules = async () => {
-  //     try {
-  //       if (selectedClassId) {
-  //         const response = await axios.get(
-  //           `/class-schedule/${selectedClassId}`
-  //         );
-  //         setClassSchedules(response.data);
-  //       } else {
-  //         setClassSchedules([]);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching class schedules:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchClassSchedules = async () => {
+      try {
+        if (selectedClassId) {
+          const response = await instance.get(
+            `/class-schedule/${selectedClassId}`
+          );
+          setClassSchedules(response.data);
+        } else {
+          setClassSchedules([]);
+        }
+      } catch (error) {
+        console.error("Error fetching class schedules:", error);
+      }
+    };
 
-  //   fetchClassSchedules();
-  // }, [selectedClassId]);
+    fetchClassSchedules();
+  }, [selectedClassId]);
 
   return (
     <div

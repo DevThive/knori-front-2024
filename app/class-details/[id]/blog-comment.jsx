@@ -1,7 +1,7 @@
 const Blogcomment = ({ classData }) => {
   const createdAtDate = new Date(classData.createdAt);
 
-  const pureImageUrl = classData.photo.replace(/[\[\]\"\\]/g, "");
+  const classImage = classData.photo.replace(/[\[\]\"\\]/g, "");
   return (
     <div className="col-xxl-9 col-xl-8 col-lg-8 lg-mb-30">
       <div className="blog__details-left">
@@ -27,7 +27,7 @@ const Blogcomment = ({ classData }) => {
 
         <img
           style={{ height: "400px", objectFit: "cover" }}
-          src={pureImageUrl}
+          src={classImage}
           alt=""
         />
         <div className="blog__details-left-meta"></div>

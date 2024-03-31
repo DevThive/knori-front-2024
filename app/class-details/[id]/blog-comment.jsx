@@ -33,7 +33,7 @@ const Blogcomment = ({ classData }) => {
         {/* <p>
           Nulla at eleifend lorem. Praesent et ex sed metus egestas feugiat.
           Donec velit libero, feugiat ac dictum vel, dignissim id ante. Praesent
-          hendrerit posuere condimentum.
+          hendrerit posuere condimentum..
         </p>
         <div className="blog__details-left-box">
           <div className="blog__details-left-box-icon">

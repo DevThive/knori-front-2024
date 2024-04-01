@@ -33,12 +33,12 @@ const Mainclass = () => {
           </div>
         </div>
         <div className="row">
-          {classItem.map((item, index) => (
+          {classItem.map((data, index) => (
             <div key={index} className="col-xl-4 col-lg-6 col-md-6 mt-30">
               <div
                 className={`deluxe__three-item ${index === 1 ? "center" : ""}`}
               >
-                {console.log(item.photo)}
+                {console.log(data.photo)}
                 <div
                   className="deluxe__three-item-image"
                   style={{
@@ -48,14 +48,14 @@ const Mainclass = () => {
                   }}
                 >
                   <img
-                    src={item.photo}
-                    alt={item.title}
+                    src={data.photo}
+                    alt="image"
                     layout="fill"
                     objectFit="cover"
                   />
                   <div className="deluxe__three-item-image-content">
                     <h4>
-                      <a href={`/class-details/${item.id}`}>{item.title}</a>
+                      <a href={`/class-details/${data.id}`}>{data.title}</a>
                     </h4>
                     <h5>
                       <span>25,000원/1인</span>
@@ -64,7 +64,7 @@ const Mainclass = () => {
                     <div className="deluxe__three-item-image-content-bottom">
                       <a
                         className="simple-btn"
-                        href={`/class-details/${item.id}`}
+                        href={`/class-details/${data.id}`}
                       >
                         <i className="far fa-chevron-right"></i> 자세히보기
                       </a>

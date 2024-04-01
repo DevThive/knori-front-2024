@@ -39,6 +39,7 @@ const Mainclass = () => {
               <div
                 className={`deluxe__three-item ${index === 1 ? "center" : ""}`}
               >
+                {console.log(item.photo)}
                 <div
                   className="deluxe__three-item-image"
                   style={{
@@ -47,7 +48,7 @@ const Mainclass = () => {
                     height: "400px",
                   }}
                 >
-                  <Image
+                  <img
                     src={item.photo}
                     alt={item.title}
                     layout="fill"

@@ -51,7 +51,7 @@ const Mainclass = () => {
                     src={data.photo}
                     alt="image"
                     layout="fill"
-                    objectFit="cover"
+                    style={{ objectFit: "cover" }}
                   />
                   <div className="deluxe__three-item-image-content">
                     <h4>

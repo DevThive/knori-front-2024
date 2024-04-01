@@ -13,6 +13,10 @@ const Mainclass = () => {
     fetchData();
   }, []);
 
+  const handleImageError = (event) => {
+    event.target.src = "/img/blog/blog-3.jpg"; // 기본 이미지 URL로 변경
+  };
+
   const classItem = classes.slice(0, 3);
   return (
     <div className="deluxe__three section-padding">
@@ -48,10 +52,10 @@ const Mainclass = () => {
                   }}
                 >
                   <img
+                    style={{ objectFit: "cover" }}
                     src={data.photo}
                     alt="image"
-                    layout="fill"
-                    style={{ objectFit: "cover" }}
+                    onError={handleImageError} // 이미지 로드 실패 시 기본 이미지로 대체
                   />
                   <div className="deluxe__three-item-image-content">
                     <h4>

@@ -46,7 +46,7 @@ const Deluxe = () => {
                     style={{ height: "200px", objectFit: "cover" }}
                     src={data.photo}
                     alt="image"
-                    onError={handleImageError} // 이미지 로드 실패 시 기본 이미지로 대체.
+                    onError={handleImageError} // 이미지 로드 실패 시 기본 이미지로 대체..
                   />
                   <div className="blog__two-item-image-date">
                     <h5>{data.date}</h5>

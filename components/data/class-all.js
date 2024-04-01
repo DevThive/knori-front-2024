@@ -4,7 +4,7 @@ async function classlist() {
   try {
     // 실제 API 주소를 사용하거나 임시 데이터를 사용해야 합니다.
     const response = await axios.get("https://api.knori.or.kr/class");
-    const data = response.data;
+    let data = response.data;
 
     data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 

@@ -21,8 +21,8 @@ const Deluxe = () => {
         <div className="row align-items-center mb-30">
           <div className="col-xl-6 col-lg-6 col-md-8">
             <div className="deluxe__three-title">
-              <span className="subtitle__one">Deluxe and Luxury</span>
-              <h2>Luxury Rooms</h2>
+              <span className="subtitle__one">Class</span>
+              <h2>클래스</h2>
             </div>
           </div>
           <div className="col-xl-6 col-lg-6 col-md-4">
@@ -41,19 +41,18 @@ const Deluxe = () => {
                   <Image
                     src={item.photo}
                     alt={item.title}
-                    width={500}
-                    height={500}
+                    style={{ height: "350px", width: "500px" }}
                   />
                   <div className="deluxe__three-item-image-content">
                     <h4>
-                      <a href="/room-details">{item.title}</a>
-                      <span>${item.price}/Night</span>
+                      <a href={`/class-details/${item.id}`}>{item.title}</a>
                     </h4>
                     <p>{item.des}</p>
                     <div className="deluxe__three-item-image-content-meta">
                       <ul>
                         <li>
-                          <i className="fal fa-bed-alt"></i> ({item.bed}) bed's
+                          <i className="fal fa-users"></i>
+                          <span>${item.price}/Night</span>
                         </li>
                         <li>
                           <i className="fal fa-users"></i> ({item.guest})
@@ -62,12 +61,15 @@ const Deluxe = () => {
                       </ul>
                     </div>
                     <div className="deluxe__three-item-image-content-bottom">
-                      <Link className="simple-btn" href="/room-details">
+                      <Link
+                        className="simple-btn"
+                        href={`/class-details/${item.id}`}
+                      >
                         <i className="far fa-chevron-right"></i> Read More
                       </Link>
-                      <p>
+                      {/* <p>
                         <i className="fas fa-star"></i> <span>4.8</span>2k
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>

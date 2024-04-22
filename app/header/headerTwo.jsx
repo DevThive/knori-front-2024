@@ -1,12 +1,12 @@
-'use client';
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useEffect, useState } from "react";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Blog, Home, Page, Room } from './Menu';
-import DropDown from './DropDown';
-import Link from 'next/link';
-import SideBar from './sidebar/sidebar';
-import Search from './sidebar/search';
-import Social from '../socials/page';
+import { Blog, Home, Page, Room } from "./Menu";
+import DropDown from "./DropDown";
+import Link from "next/link";
+import SideBar from "./sidebar/sidebar";
+import Search from "./sidebar/search";
+import Social from "../socials/page";
 
 const HeaderTwo = ({ variant }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -14,7 +14,7 @@ const HeaderTwo = ({ variant }) => {
   const [search, setSearch] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
         setIsSticky(true);
       } else {
@@ -45,18 +45,20 @@ const HeaderTwo = ({ variant }) => {
             </div>
           </div>
           <div
-            className={`header__area-menubar three header__sticky ${variant ? variant : ''} ${isSticky ? 'header__sticky-sticky-menu' : ''}`}
+            className={`header__area-menubar three header__sticky ${
+              variant ? variant : ""
+            } ${isSticky ? "header__sticky-sticky-menu" : ""}`}
           >
             <div className="header__area-menubar-left">
               <div className="header__area-menubar-left-logo">
                 <Link href="/">
-                  <img src="/logo2.png" alt="logo" height={'300px'} />
+                  <img src="/logo2.png" alt="logo" height={"300px"} />
                 </Link>
                 <span
                   className={
                     mobileToggle
-                      ? 'mobile-menu two mobile-menu-active'
-                      : 'mobile-menu two'
+                      ? "mobile-menu two mobile-menu-active"
+                      : "mobile-menu two"
                   }
                   onClick={() => setMobileToggle(!mobileToggle)}
                 >
@@ -68,7 +70,7 @@ const HeaderTwo = ({ variant }) => {
               <div className="header__area-menubar-right-menu three menu-responsive">
                 <ul
                   className="mobile__menu"
-                  style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
+                  style={{ display: `${mobileToggle ? "block" : "none"}` }}
                 >
                   {/* <li className="menu-item-has-children">
                     <a href="#">Home</a>

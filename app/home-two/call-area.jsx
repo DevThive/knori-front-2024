@@ -15,7 +15,7 @@ const Callarea = () => {
               </div>
               <div className="call__area-bg-right-content">
                 <span>
-                  <a href="tel:+123(458)585568">업데이트 예정</a>
+                  <a href="tel:+82(031)8769500">(031) 876-9500</a>
                 </span>
               </div>
             </div>

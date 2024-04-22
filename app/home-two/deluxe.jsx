@@ -1,14 +1,14 @@
-import classist from "@/components/data/class-all";
+import classlist from "@/components/data/class-all";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-const Mainclass = () => {
+const Deluxe = () => {
   const [classes, setClasses] = useState([]); // 상태 추가
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await classist();
+      const data = await classlist();
       setClasses(data);
     };
     fetchData();
@@ -21,14 +21,14 @@ const Mainclass = () => {
         <div className="row align-items-center mb-30">
           <div className="col-xl-6 col-lg-6 col-md-8">
             <div className="deluxe__three-title">
-              <span className="subtitle__one">Healing Class</span>
-              <h2>클래스 소개</h2>
+              <span className="subtitle__one">Class</span>
+              <h2>클래스</h2>
             </div>
           </div>
           <div className="col-xl-6 col-lg-6 col-md-4">
             <div className="deluxe__three-right">
-              <Link className="theme-btn" href="/class-list">
-                자세히보기<i className="fal fa-long-arrow-right"></i>
+              <Link className="theme-btn" href="/about">
+                Read More<i className="fal fa-long-arrow-right"></i>
               </Link>
             </div>
           </div>
@@ -36,38 +36,40 @@ const Mainclass = () => {
         <div className="row">
           {classItem.map((item, index) => (
             <div key={index} className="col-xl-4 col-lg-6 col-md-6 mt-30">
-              <div
-                className={`deluxe__three-item ${index === 1 ? "center" : ""}`}
-              >
-                <div
-                  className="deluxe__three-item-image"
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "400px",
-                  }}
-                >
+              <div className={`deluxe__three-item ${item.cl}`}>
+                <div className="deluxe__three-item-image">
                   <Image
                     src={item.photo}
                     alt={item.title}
-                    layout="fill"
-                    objectFit="cover"
+                    style={{ height: "350px", width: "500px" }}
                   />
                   <div className="deluxe__three-item-image-content">
                     <h4>
                       <a href={`/class-details/${item.id}`}>{item.title}</a>
                     </h4>
-                    <h5>
-                      <span>25,000원/1인</span>
-                    </h5>
-
+                    <p>{item.des}</p>
+                    <div className="deluxe__three-item-image-content-meta">
+                      <ul>
+                        <li>
+                          <i className="fal fa-users"></i>
+                          <span>${item.price}/Night</span>
+                        </li>
+                        <li>
+                          <i className="fal fa-users"></i> ({item.guest})
+                          Guest's
+                        </li>
+                      </ul>
+                    </div>
                     <div className="deluxe__three-item-image-content-bottom">
-                      <a
+                      <Link
                         className="simple-btn"
                         href={`/class-details/${item.id}`}
                       >
-                        <i className="far fa-chevron-right"></i> 자세히보기
-                      </a>
+                        <i className="far fa-chevron-right"></i> Read More
+                      </Link>
+                      {/* <p>
+                        <i className="fas fa-star"></i> <span>4.8</span>2k
+                      </p> */}
                     </div>
                   </div>
                 </div>
@@ -80,4 +82,4 @@ const Mainclass = () => {
   );
 };
 
-export default Mainclass;
+export default Deluxe;

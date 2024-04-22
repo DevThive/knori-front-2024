@@ -1,5 +1,7 @@
 const Blogcomment = ({ classData }) => {
   const createdAtDate = new Date(classData.createdAt);
+
+  const classImage = classData.photo.replace(/[\[\]\"\\]/g, "");
   return (
     <div className="col-xxl-9 col-xl-8 col-lg-8 lg-mb-30">
       <div className="blog__details-left">
@@ -25,7 +27,7 @@ const Blogcomment = ({ classData }) => {
 
         <img
           style={{ height: "400px", objectFit: "cover" }}
-          src={classData.photo}
+          src={classImage}
           alt=""
         />
         <div className="blog__details-left-meta"></div>
@@ -33,7 +35,7 @@ const Blogcomment = ({ classData }) => {
         {/* <p>
           Nulla at eleifend lorem. Praesent et ex sed metus egestas feugiat.
           Donec velit libero, feugiat ac dictum vel, dignissim id ante. Praesent
-          hendrerit posuere condimentum.
+          hendrerit posuere condimentum..
         </p>
         <div className="blog__details-left-box">
           <div className="blog__details-left-box-icon">

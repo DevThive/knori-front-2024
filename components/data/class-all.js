@@ -4,19 +4,20 @@ async function classlist() {
   try {
     // 실제 API 주소를 사용하거나 임시 데이터를 사용해야 합니다.
     const response = await axios.get("https://api.knori.or.kr/class");
-    const data = response.data;
+    let data = response.data;
 
     data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     const formattedData = data.map((item) => {
+      const pureImageUrl = item.photo.replace(/[\[\]\"\\]/g, "");
       const createdAtDate = new Date(item.createdAt);
       return {
         id: item.id,
         title: item.title,
         content: item.content,
-        photo: item.photo,
+        photo: pureImageUrl,
         state: "미정",
-        createdAt: item.createdAt,
+        createdAt: createdAtDate,
       };
     });
 

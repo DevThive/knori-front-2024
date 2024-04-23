@@ -1,5 +1,6 @@
 import ClassSelector from "../class/class-selector";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import instance from "@/app/axios/axiosInstance";
 
 const Booking = () => {
@@ -7,7 +8,7 @@ const Booking = () => {
   const [classSchedules, setClassSchedules] = useState([]);
   const [selectedClassId, setSelectedClassId] = useState("");
 
-  const handleClassSelect = (selectedClassId) => {
+  const handleClassSelect = (selectedClassId, ref) => {
     setSelectedClassId(selectedClassId);
     console.log(selectedClassId);
   };
@@ -35,13 +36,14 @@ const Booking = () => {
     <div
       className="booking__two section-padding"
       style={{ backgroundImage: `url('/img/bg/booking-bg.jpg')` }}
+      id="booking"
     >
       <div className="container">
         <div className="row mb-60">
           <div className="col-xl-12">
             <div className="booking__two-title">
               <span className="subtitle__one">Reservation Aria</span>
-              <h2>나에게 맞는 도자기 클래스 선택하기</h2>
+              <h2>체험클래스 예약하기</h2>
             </div>
           </div>
         </div>
@@ -51,7 +53,8 @@ const Booking = () => {
               <div className="check__area two">
                 <div className="check__area-item">
                   <p>
-                    총 인원수 <input id="date" type="number" min="1" />
+                    총 인원수{" "}
+                    <input defaultValue={"0"} id="date" type="number" min="1" />
                   </p>
                 </div>
                 <ClassSelector onClassSelect={handleClassSelect} />

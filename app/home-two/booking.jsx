@@ -2,6 +2,7 @@ import ClassSelector from "../class/class-selector";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import instance from "@/app/axios/axiosInstance";
+import Modal from "./bookingmodal";
 
 const Booking = () => {
   const [selectedSchedule, setSelectedSchedule] = useState("");
@@ -17,10 +18,8 @@ const Booking = () => {
     const fetchClassSchedules = async () => {
       try {
         if (selectedClassId) {
-          const response = await instance.get(
-            `/class-schedule/${selectedClassId}`
-          );
-          setClassSchedules(response.data);
+          const response = await instance.get(`/class/${selectedClassId}`);
+          setClassSchedules(response.data.class_schedules);
         } else {
           setClassSchedules([]);
         }
@@ -31,6 +30,34 @@ const Booking = () => {
 
     fetchClassSchedules();
   }, [selectedClassId]);
+
+  console.log(classSchedules);
+
+  // 모달 상태와 예약 정보 상태를 추가합니다.
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [reservationInfo, setReservationInfo] = useState({
+    selectedClassId: "",
+    selectedDate: "",
+    selectedTime: "",
+    selectedPeople: 0, // 여기에 인원수 상태 추가
+  });
+
+  // 예약하기 버튼 클릭 이벤트 핸들러 수정
+  const handleReservation = (e) => {
+    e.preventDefault(); // 폼 전송 기본 동작을 방지합니다.
+    setReservationInfo({
+      selectedClassId: selectedClassId,
+      selectedDate: document.getElementById("date").value,
+      selectedTime: selectedSchedule,
+      selectedPeople: document.getElementById("people").value, // 인원수 정보 추가
+    });
+    setIsModalOpen(true); // 모달을 엽니다.
+  };
+
+  // 모달 닫기 함수를 정의합니다.
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div
@@ -49,12 +76,17 @@ const Booking = () => {
         </div>
         <div className="row">
           <div className="col-xl-12">
-            <form action="#">
+            <form onSubmit={handleReservation}>
               <div className="check__area two">
                 <div className="check__area-item">
                   <p>
                     총 인원수{" "}
-                    <input defaultValue={"0"} id="date" type="number" min="1" />
+                    <input
+                      defaultValue={"1"}
+                      id="people"
+                      type="number"
+                      min="1"
+                    />
                   </p>
                 </div>
                 <ClassSelector onClassSelect={handleClassSelect} />
@@ -72,8 +104,8 @@ const Booking = () => {
                   >
                     <option value="">시간을 선택하세요</option>
                     {classSchedules.map((schedule) => (
-                      <option key={schedule.id} value={schedule.time}>
-                        {schedule.time}
+                      <option key={schedule.id} value={schedule}>
+                        {schedule}
                       </option>
                     ))}
                   </select>
@@ -85,15 +117,20 @@ const Booking = () => {
                 </div>
               </div>
             </form>
+            <Modal
+              isOpen={isModalOpen}
+              onClose={closeModal}
+              reservationInfo={reservationInfo}
+            />
           </div>
         </div>
-        {selectedClassId && (
+        {/* {selectedClassId && (
           <div className="row mt-100">
             <div className="col-xl-12">
               <h3>선택된 클래스: {selectedClassId}</h3>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

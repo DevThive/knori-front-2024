@@ -18,15 +18,20 @@ const Social = () => {
           </Link>
         </li>
         <li>
-          <Link href="https://www.behance.net" target="_blank">
-            <i className="fab fa-behance"></i>
-          </Link>
+          <a
+            href="
+            http://pf.kakao.com/_xaxocxeG"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fas fa-comment"></i>
+          </a>
         </li>
-        <li>
+        {/* <li>
           <Link href="https://www.linkedin.com" target="_blank">
             <i className="fab fa-linkedin-in"></i>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </>
   );

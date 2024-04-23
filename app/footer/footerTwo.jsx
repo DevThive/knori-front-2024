@@ -36,7 +36,7 @@ const FooterTwo = () => {
                     (재) 케이놀이문화재단 대표이사 : 김봉현, 박연희 <br />
                     체험장 : 경기도 양주시 기산로 548 <br /> 본사 : 서울 송파구
                     위례성대로 18. 9층 <br />
-                    Tel : 업데이트예정 Fax : 업데이트예정 <br />
+                    Tel : (031) 876 9500 Fax : 0508 118 1514 <br />
                     E-mail : knori2024@gmail.com
                   </p>
                   <div className="footer__two-widget-about-social">

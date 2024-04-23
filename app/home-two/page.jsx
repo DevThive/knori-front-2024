@@ -1,4 +1,5 @@
 "use client";
+
 import SEO from "@/components/seo";
 import FooterTwo from "../footer/footerTwo";
 import HeaderTwo from "../header/headerTwo";

@@ -1,3 +1,4 @@
+"use client";
 import classlist from "@/components/data/class-all";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -27,8 +28,8 @@ const Deluxe = () => {
           </div>
           <div className="col-xl-6 col-lg-6 col-md-4">
             <div className="deluxe__three-right">
-              <Link className="theme-btn" href="/about">
-                Read More<i className="fal fa-long-arrow-right"></i>
+              <Link className="theme-btn" href="/class-list">
+                자세히보기<i className="fal fa-long-arrow-right"></i>
               </Link>
             </div>
           </div>
@@ -47,29 +48,17 @@ const Deluxe = () => {
                     <h4>
                       <a href={`/class-details/${item.id}`}>{item.title}</a>
                     </h4>
-                    <p>{item.des}</p>
-                    <div className="deluxe__three-item-image-content-meta">
-                      <ul>
-                        <li>
-                          <i className="fal fa-users"></i>
-                          <span>${item.price}/Night</span>
-                        </li>
-                        <li>
-                          <i className="fal fa-users"></i> ({item.guest})
-                          Guest's
-                        </li>
-                      </ul>
-                    </div>
+                    <h5>
+                      <span>18,000원/1인</span>
+                    </h5>
+
                     <div className="deluxe__three-item-image-content-bottom">
-                      <Link
+                      <a
                         className="simple-btn"
                         href={`/class-details/${item.id}`}
                       >
-                        <i className="far fa-chevron-right"></i> Read More
-                      </Link>
-                      {/* <p>
-                        <i className="fas fa-star"></i> <span>4.8</span>2k
-                      </p> */}
+                        <i className="far fa-chevron-right"></i> 자세히보기
+                      </a>
                     </div>
                   </div>
                 </div>

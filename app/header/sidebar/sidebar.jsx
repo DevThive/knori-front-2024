@@ -36,7 +36,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
             <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
               <span>Call Now</span>
               <h6>
-                <Link href="tel:+125(895)658568"> 업데이트 예정 </Link>
+                <Link href="tel:+82(031)8769500"> (031) 876 9500 </Link>
               </h6>
             </div>
           </div>

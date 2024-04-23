@@ -1,12 +1,12 @@
-'use client';
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useEffect, useState } from "react";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Blog, Home, Page, Room } from './Menu';
-import DropDown from './DropDown';
-import Link from 'next/link';
-import SideBar from './sidebar/sidebar';
-import Search from './sidebar/search';
-import Social from '../socials/page';
+import { Blog, Home, Page, Room } from "./Menu";
+import DropDown from "./DropDown";
+import Link from "next/link";
+import SideBar from "./sidebar/sidebar";
+import Search from "./sidebar/search";
+import Social from "../socials/page";
 
 const HeaderTwo = ({ variant }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -14,7 +14,7 @@ const HeaderTwo = ({ variant }) => {
   const [search, setSearch] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
         setIsSticky(true);
       } else {
@@ -30,7 +30,7 @@ const HeaderTwo = ({ variant }) => {
             <div className="header__area-top-bar-left">
               <div className="header__area-top-bar-left-info">
                 <span>
-                  <Link href="https://www.google.com/maps">
+                  <Link href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%EC%A3%BC%EC%8B%9C%20%EB%B0%B1%EC%84%9D%EC%9D%8D%20%EA%B8%B0%EC%82%B0%EB%A1%9C%20548/address/14131962.7689992,4548092.0519643,%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%EC%A3%BC%EC%8B%9C%20%EB%B0%B1%EC%84%9D%EC%9D%8D%20%EA%B8%B0%EC%82%B0%EB%A1%9C%20548,new?c=19.00,0,0,0,dh&isCorrectAnswer=true">
                     <i className="fal fa-map-marker-alt"></i>QWHX+4V 양주시
                     경기도
                   </Link>
@@ -45,18 +45,20 @@ const HeaderTwo = ({ variant }) => {
             </div>
           </div>
           <div
-            className={`header__area-menubar three header__sticky ${variant ? variant : ''} ${isSticky ? 'header__sticky-sticky-menu' : ''}`}
+            className={`header__area-menubar three header__sticky ${
+              variant ? variant : ""
+            } ${isSticky ? "header__sticky-sticky-menu" : ""}`}
           >
             <div className="header__area-menubar-left">
               <div className="header__area-menubar-left-logo">
                 <Link href="/">
-                  <img src="/logo2.png" alt="logo" height={'300px'} />
+                  <img src="/logo2.png" alt="logo" height={"300px"} />
                 </Link>
                 <span
                   className={
                     mobileToggle
-                      ? 'mobile-menu two mobile-menu-active'
-                      : 'mobile-menu two'
+                      ? "mobile-menu two mobile-menu-active"
+                      : "mobile-menu two"
                   }
                   onClick={() => setMobileToggle(!mobileToggle)}
                 >
@@ -68,7 +70,7 @@ const HeaderTwo = ({ variant }) => {
               <div className="header__area-menubar-right-menu three menu-responsive">
                 <ul
                   className="mobile__menu"
-                  style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
+                  style={{ display: `${mobileToggle ? "block" : "none"}` }}
                 >
                   {/* <li className="menu-item-has-children">
                     <a href="#">Home</a>
@@ -79,7 +81,7 @@ const HeaderTwo = ({ variant }) => {
                     </DropDown>
                   </li> */}
                   <li className="menu-item-has-children">
-                    <a href="#">회사소개</a>
+                    <a href="#">재단소개</a>
                     <DropDown>
                       <ul className="sub-menu">
                         <Page />

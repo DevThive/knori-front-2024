@@ -30,7 +30,7 @@ const HeaderTwo = ({ variant }) => {
             <div className="header__area-top-bar-left">
               <div className="header__area-top-bar-left-info">
                 <span>
-                  <Link href="https://www.google.com/maps">
+                  <Link href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%EC%A3%BC%EC%8B%9C%20%EB%B0%B1%EC%84%9D%EC%9D%8D%20%EA%B8%B0%EC%82%B0%EB%A1%9C%20548/address/14131962.7689992,4548092.0519643,%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%EC%A3%BC%EC%8B%9C%20%EB%B0%B1%EC%84%9D%EC%9D%8D%20%EA%B8%B0%EC%82%B0%EB%A1%9C%20548,new?c=19.00,0,0,0,dh&isCorrectAnswer=true">
                     <i className="fal fa-map-marker-alt"></i>QWHX+4V 양주시
                     경기도
                   </Link>
@@ -81,7 +81,7 @@ const HeaderTwo = ({ variant }) => {
                     </DropDown>
                   </li> */}
                   <li className="menu-item-has-children">
-                    <a href="#">회사소개</a>
+                    <a href="#">재단소개</a>
                     <DropDown>
                       <ul className="sub-menu">
                         <Page />

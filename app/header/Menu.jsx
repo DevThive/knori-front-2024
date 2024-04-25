@@ -38,7 +38,10 @@ export const Room = () => (
       <Link href="/class-list">클래스 소개</Link>
     </li>
     <li>
-      <Link href="/reservation">클래스 예약</Link>
+      <Link href="/?scrollTo=half">클래스 예약</Link>
+    </li>
+    <li>
+      <Link href="/reservation-check">예약 조회</Link>
     </li>
     <li>
       <Link href="/review-list">클래스 리뷰</Link>

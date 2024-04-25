@@ -18,8 +18,10 @@ const Booking = () => {
     const fetchClassSchedules = async () => {
       try {
         if (selectedClassId) {
-          const response = await instance.get(`/class/${selectedClassId}`);
-          setClassSchedules(response.data.class_schedules);
+          const response = await instance.get(
+            `/class-schedule/${selectedClassId}`
+          );
+          setClassSchedules(response.data);
         } else {
           setClassSchedules([]);
         }
@@ -96,19 +98,21 @@ const Booking = () => {
                   </p>
                 </div>
                 <div className="check__area-item">
-                  <p>시간 선택</p>
-                  <select
-                    id="time"
-                    value={selectedSchedule}
-                    onChange={(e) => setSelectedSchedule(e.target.value)}
-                  >
-                    <option value="">시간을 선택하세요</option>
-                    {classSchedules.map((schedule) => (
-                      <option key={schedule.id} value={schedule}>
-                        {schedule}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="check__area-item-room">
+                    <p>시간 선택</p>
+                    <select
+                      id="time"
+                      value={selectedSchedule}
+                      onChange={(e) => setSelectedSchedule(e.target.value)}
+                    >
+                      <option value="">시간을 선택하세요</option>
+                      {classSchedules.map((schedule) => (
+                        <option key={schedule.id} value={schedule.time}>
+                          {schedule.time}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
                 <div className="check__area-item button">
                   <button className="theme-btn" type="submit">

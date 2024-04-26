@@ -22,6 +22,11 @@ const HeaderTwo = ({ variant }) => {
       }
     });
   }, []);
+  // 로고를 클릭하여 모달을 닫고 첫 화면으로 돌아가는 함수
+  const handleLogoClick = () => {
+    closeModal(); // 모달을 닫음
+    window.location.href = "/"; // 첫 화면으로 이동
+  };
   return (
     <>
       <div className="header__area three">
@@ -51,7 +56,7 @@ const HeaderTwo = ({ variant }) => {
           >
             <div className="header__area-menubar-left">
               <div className="header__area-menubar-left-logo">
-                <Link href="/">
+                <Link href="/" onClick={handleLogoClick}>
                   <img src="/logo2.png" alt="logo" height={"300px"} />
                 </Link>
                 <span

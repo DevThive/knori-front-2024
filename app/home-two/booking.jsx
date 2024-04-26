@@ -30,7 +30,16 @@ const Booking = () => {
   };
   //오늘날짜에 1을 더해서 기본값으로 설정
   const today = new Date();
-  today.setDate(today.getDate() + 1);
+  today.setDate(today.getDate() + 14);
+
+  const minDateString = today.toISOString().split("T")[0];
+
+  // // 2주 뒤 날짜부터 선택불가.
+  // const maxDate = new Date();
+  // maxDate.setDate(today.getDate() + 14);
+
+  // // maxDate를 ISO 형식으로 변환합니다.
+  // const maxDateString = maxDate.toISOString().split("T")[0];
 
   useEffect(() => {
     const fetchClassSchedules = async () => {
@@ -123,7 +132,7 @@ const Booking = () => {
                       id="date"
                       type="date"
                       onChange={handleDateChange}
-                      min={today.toISOString().split("T")[0]} // 오늘 이후의 날짜만 선택 가능하도록 설정
+                      min={minDateString}
                     />
                   </p>
                 </div>

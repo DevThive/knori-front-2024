@@ -88,19 +88,19 @@ const FooterTwo = () => {
                 <h5>오픈시간</h5>
                 <div className="footer__two-widget-hours">
                   <p>
-                    월요일<span>9 : 00 AM - 15 : 00 PM</span>
+                    월요일<span>9 : 00 AM - 18 : 00 PM</span>
                   </p>
                   <p>
-                    화요일<span>9 : 00 AM - 15 : 00 PM</span>
+                    화요일<span>9 : 00 AM - 18 : 00 PM</span>
                   </p>{" "}
                   <p>
-                    수요일<span>9 : 00 AM - 15 : 00 PM</span>
+                    수요일<span>9 : 00 AM - 18 : 00 PM</span>
                   </p>{" "}
                   <p>
-                    목요일<span>9 : 00 AM - 15 : 00 PM</span>
+                    목요일<span>9 : 00 AM - 18 : 00 PM</span>
                   </p>{" "}
                   <p>
-                    금요일<span>9 : 00 AM - 15 : 00 PM</span>
+                    금요일<span>9 : 00 AM - 18 : 00 PM</span>
                   </p>
                 </div>
               </div>

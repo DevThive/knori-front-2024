@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/base": "^5.0.0-beta.38",
+    "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.12",
     "@rcaferati/wac": "^1.0.0",
     "@react-icons/all-files": "^4.1.0",

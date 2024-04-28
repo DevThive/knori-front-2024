@@ -20,15 +20,14 @@ const Contactcontainer = () => {
       // 결제 처리 로직
       const paymentSuccess = await processPayment();
       if (paymentSuccess) {
-        const response = await axios.post('/reservation/:classId', formData);
-        console.log(response.data)
+        const response = await axios.post("/reservation/:classId", formData);
+        console.log(response.data);
         await submitReservation();
         alert("예약이 완료되었습니다!");
       } else {
         alert("결제가 실패했습니다. 다시 시도해주세요.");
       }
     } catch (error) {
-        
       console.error(
         "Error processing payment or submitting reservation:",
         error

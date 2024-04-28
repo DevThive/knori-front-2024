@@ -68,24 +68,33 @@ const Booking = () => {
     selectedClassId: "",
     selectedDate: "",
     selectedTime: "",
-    selectedPeople: 0, // 여기에 인원수 상태 추가
+    selectedPeople: 0, 
   });
 
   // 예약하기 버튼 클릭 이벤트 핸들러 수정
   const handleReservation = (e) => {
-    e.preventDefault(); // 폼 전송 기본 동작을 방지합니다.
+    e.preventDefault(); 
     if (totalPeople > 20) {
       // 20명 초과인 경우에만 예약 가능
-      setReservationInfo({
-        selectedClassId: selectedClassId,
-        selectedDate: document.getElementById("date").value,
-        selectedTime: selectedSchedule,
-        selectedPeople: document.getElementById("people").value, // 인원수 정보 추가
-      });
-      setIsModalOpen(true); // 모달을 엽니다.
+      if (
+        totalPeople > 0 &&
+        selectedClassId &&
+        document.getElementById("date").value &&
+        selectedSchedule
+      ) {
+        // 총인원수, 클래스명, 날짜, 시간이 모두 선택된 경우에만 예약 가능
+        setReservationInfo({
+          selectedClassId: selectedClassId,
+          selectedDate: document.getElementById("date").value,
+          selectedTime: selectedSchedule,
+          selectedPeople: document.getElementById("people").value, 
+        });
+        setIsModalOpen(true); 
+      } else {
+        alert("필수 정보를 모두 입력해주세요."); 
+      }
     } else {
-      alert("죄송합니다. 20명 이하 개인 예약자는 현재 예약할 수 없습니다."); // 20명 이하인 경우 알림 메시지 표시
-    }
+      alert("죄송합니다. 20명 이하 개인 예약자는 현재 예약할 수 없습니다."); 
   };
 
   // 모달 닫기 함수를 정의합니다.

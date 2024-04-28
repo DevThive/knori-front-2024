@@ -68,12 +68,12 @@ const Booking = () => {
     selectedClassId: "",
     selectedDate: "",
     selectedTime: "",
-    selectedPeople: 0, 
+    selectedPeople: 0,
   });
 
   // 예약하기 버튼 클릭 이벤트 핸들러 수정
   const handleReservation = (e) => {
-    e.preventDefault(); 
+    e.preventDefault(); // 폼 전송 기본 동작을 방지합니다.
     if (totalPeople > 20) {
       // 20명 초과인 경우에만 예약 가능
       if (
@@ -87,14 +87,15 @@ const Booking = () => {
           selectedClassId: selectedClassId,
           selectedDate: document.getElementById("date").value,
           selectedTime: selectedSchedule,
-          selectedPeople: document.getElementById("people").value, 
+          selectedPeople: document.getElementById("people").value,
         });
-        setIsModalOpen(true); 
+        setIsModalOpen(true);
       } else {
-        alert("필수 정보를 모두 입력해주세요."); 
+        alert("필수 정보를 모두 입력해주세요.");
       }
     } else {
-      alert("죄송합니다. 20명 이하 개인 예약자는 현재 예약할 수 없습니다."); 
+      alert("죄송합니다. 20명 이하 개인 예약자는 현재 예약할 수 없습니다.");
+    }
   };
 
   // 모달 닫기 함수를 정의합니다.

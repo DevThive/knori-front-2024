@@ -420,107 +420,122 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
         {step === 2 && (
           <Box
             sx={{
-              backgroundColor: "white",
-              padding: "20px",
-
-              width: "900px",
-              height: "auto",
+              padding: { xs: "5px", sm: "90px" },
+              maxHeight: { xs: "90vh", sm: "90vh" }, // 화면 높이의 90%를 최대 높이로 설정
+              height: "auto", // 내용이 넘칠 경우 스크롤 가능
             }}
           >
-            <Typography
-              variant="h4"
-              gutterBottom
-              component="div"
-              sx={{ fontWeight: "bold", textAlign: "center", mb: 3 }}
-            >
-              도자기 체험 안내
-            </Typography>
-            <List
-              dense
-              sx={{
-                bgcolor: "background.paper",
-                borderRadius: "10px",
-                boxShadow: 3,
-              }}
-            >
-              <ListItem>
-                <ListItemIcon>
-                  <PotteryIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="도자기 체험 비용에는 재료비, 소성비가 모두 포함되어 있습니다." />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <EventAvailableIcon color="secondary" />
-                </ListItemIcon>
-                <ListItemText primary='K-놀이문화재단 "100% 예약제"로 운영됩니다. (최소 2주 전까지 예약 부탁드립니다.)' />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <QuestionAnswerIcon color="success" />
-                </ListItemIcon>
-                <ListItemText primary="예약 양식 작성 후 문의 주시면 친절히 안내드리겠습니다. (점심장소 필요하시면 반드시 문의부탁드립니다.)" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <WarningIcon color="error" />
-                </ListItemIcon>
-                <ListItemText primary="도자기 특성상 다음과 같은 현상이 나타날 수 있습니다." />
-              </ListItem>
-              <List dense sx={{ pl: 4 }}>
-                <ListItem>
-                  <ListItemText primary="1. 소지, 소성으로 인한 기물의 크기와 모양 차이" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="2. 소성 중 기물의 위치에 따른 페인팅 및 색감 차이" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="3. 유약의 흐름 또는 맺힘 자국과 요철" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="4. 소성 후의 말림 등의 현상" />
-                </ListItem>
-              </List>
-              <ListItem>
-                <ListItemText primary="(도자기 제작 과정 중 나타나는 자연스러운 현상으로 환불 사유에 해당되지 않는 점 참고 부탁드립니다.)" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <LocalShippingIcon color="info" />
-                </ListItemIcon>
-                <ListItemText primary='소성 후 작품 배송비는 "착불"입니다. (선불 X)' />
-              </ListItem>
-            </List>
-
-            <Grid
-              item
-              xs={12}
-              sx={{
-                display: "flex",
-                justifyContent: "flex-end",
-                gap: 2,
-                mt: 2,
-              }} // 마진 상단 추가
-            >
-              <CustomButton
-                variant="contained"
-                color="primary"
-                onClick={handleNextStep}
-              >
-                예약 진행하기
-              </CustomButton>
-            </Grid>
-          </Box>
-        )}
-        {step === 3 && (
-          <Box>
             <Box
               sx={{
-                backgroundColor: "white",
+                // backgroundColor: "white",
                 padding: "20px",
                 maxWidth: "900px",
                 width: "100%",
-                height: "auto",
+                maxHeight: { xs: "90vh", sm: "90vh" },
+                height: "100%",
+                overflowY: "auto",
+              }}
+            >
+              <Typography
+                variant="h4"
+                gutterBottom
+                component="div"
+                sx={{ fontWeight: "bold", textAlign: "center", mb: 3 }}
+              >
+                도자기 체험 안내
+              </Typography>
+              <List
+                dense
+                sx={{
+                  bgcolor: "background.paper",
+                  borderRadius: "10px",
+                  boxShadow: 3,
+                }}
+              >
+                <ListItem>
+                  <ListItemIcon>
+                    <PotteryIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText primary="도자기 체험 비용에는 재료비, 소성비가 모두 포함되어 있습니다." />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <EventAvailableIcon color="secondary" />
+                  </ListItemIcon>
+                  <ListItemText primary='K-놀이문화재단 "100% 예약제"로 운영됩니다. (최소 2주 전까지 예약 부탁드립니다.)' />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <QuestionAnswerIcon color="success" />
+                  </ListItemIcon>
+                  <ListItemText primary="예약 양식 작성 후 문의 주시면 친절히 안내드리겠습니다. (점심장소 필요하시면 반드시 문의부탁드립니다.)" />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <WarningIcon color="error" />
+                  </ListItemIcon>
+                  <ListItemText primary="도자기 특성상 다음과 같은 현상이 나타날 수 있습니다." />
+                </ListItem>
+                <List dense sx={{ pl: 4 }}>
+                  <ListItem>
+                    <ListItemText primary="1. 소지, 소성으로 인한 기물의 크기와 모양 차이" />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary="2. 소성 중 기물의 위치에 따른 페인팅 및 색감 차이" />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary="3. 유약의 흐름 또는 맺힘 자국과 요철" />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary="4. 소성 후의 말림 등의 현상" />
+                  </ListItem>
+                </List>
+                <ListItem>
+                  <ListItemText primary="(도자기 제작 과정 중 나타나는 자연스러운 현상으로 환불 사유에 해당되지 않는 점 참고 부탁드립니다.)" />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <LocalShippingIcon color="info" />
+                  </ListItemIcon>
+                  <ListItemText primary='소성 후 작품 배송비는 "착불"입니다. (선불 X)' />
+                </ListItem>
+              </List>
+
+              <Grid
+                item
+                xs={12}
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  gap: 2,
+                  mt: 2,
+                }} // 마진 상단 추가
+              >
+                <CustomButton
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNextStep}
+                >
+                  예약 진행하기
+                </CustomButton>
+              </Grid>
+            </Box>
+          </Box>
+        )}
+        {step === 3 && (
+          <Box
+            sx={{
+              padding: { xs: "10px", sm: "30px" },
+            }}
+          >
+            <Box
+              sx={{
+                backgroundColor: "white",
+                padding: { xs: "10px", sm: "30px" },
+                maxWidth: "80vw", // 화면 너비의 90%를 최대 너비로 설정
+                width: "100%",
+                maxHeight: "75vh", // 화면 높이의 90%를 최대 높이로 설정
+                overflowY: "auto", // 내용이 넘칠 경우 스크롤 가능
               }}
             >
               <Grid container spacing={3}>

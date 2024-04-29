@@ -526,6 +526,8 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
           <Box
             sx={{
               padding: { xs: "10px", sm: "30px" },
+              maxHeight: "75vh",
+              height: "auto",
             }}
           >
             <Box

@@ -440,7 +440,12 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
                 variant="h4"
                 gutterBottom
                 component="div"
-                sx={{ fontWeight: "bold", textAlign: "center", mb: 3 }}
+                sx={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  mb: 3,
+                  color: "white", // 여기에 추가
+                }}
               >
                 도자기 체험 안내
               </Typography>
@@ -525,11 +530,32 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
         {step === 3 && (
           <Box
             sx={{
-              padding: { xs: "10px", sm: "30px" },
-              maxHeight: "75vh",
-              height: "auto",
+              //   padding: { xs: "10px", sm: "30px" },
+              maxHeight: { xs: "90vh", sm: "75vh" }, // 화면 높이의 90%를 최대 높이로 설정
+              height: "auto", // 내용이 넘칠 경우 스크롤 가능
             }}
           >
+            <Grid
+              item
+              xs={12}
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <IconButton
+                onClick={handlePrevStep}
+                sx={{
+                  borderRadius: "50%", // 동그란 모양
+                  color: "white", // 화살표 색상 흰색
+                  backgroundColor: "#8B4513", // 갈색 배경
+                  "&:hover": {
+                    backgroundColor: "#A0522D", // 호버 시 더 진한 갈색으로 변경
+                  },
+                  marginRight: "16px", // 오른쪽 여백 조정
+                }}
+              >
+                <ArrowBack />
+              </IconButton>
+              <h3 style={{ color: "white", padding: "10px" }}>예약하기</h3>
+            </Grid>
             <Box
               sx={{
                 backgroundColor: "white",
@@ -541,27 +567,6 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
               }}
             >
               <Grid container spacing={3}>
-                <Grid
-                  item
-                  xs={12}
-                  style={{ display: "flex", alignItems: "center" }}
-                >
-                  <IconButton
-                    onClick={handlePrevStep}
-                    sx={{
-                      borderRadius: "50%", // 동그란 모양
-                      color: "white", // 화살표 색상 흰색
-                      backgroundColor: "#8B4513", // 갈색 배경
-                      "&:hover": {
-                        backgroundColor: "#A0522D", // 호버 시 더 진한 갈색으로 변경
-                      },
-                      marginRight: "16px", // 오른쪽 여백 조정
-                    }}
-                  >
-                    <ArrowBack />
-                  </IconButton>
-                  <h3>예약하기</h3>
-                </Grid>
                 <Grid item xs={6}>
                   <TextField
                     fullWidth
@@ -686,25 +691,29 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
                     disabled={true}
                   />
                 </Grid>
-
-                <Grid
-                  item
-                  xs={12}
-                  sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}
-                >
-                  <Button variant="contained" color="error" onClick={onClose}>
-                    취소
-                  </Button>
-                  <CustomButton
-                    variant="contained"
-                    color="primary"
-                    onClick={handleReservationSubmit}
-                  >
-                    예약하기
-                  </CustomButton>
-                </Grid>
               </Grid>
             </Box>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: 2,
+                padding: "10px",
+              }}
+            >
+              <Button variant="contained" color="error" onClick={onClose}>
+                취소
+              </Button>
+              <CustomButton
+                variant="contained"
+                color="primary"
+                onClick={handleReservationSubmit}
+              >
+                예약하기
+              </CustomButton>
+            </Grid>
           </Box>
         )}
       </Box>

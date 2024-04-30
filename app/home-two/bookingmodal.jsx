@@ -309,7 +309,7 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
   };
 
   const [className, setClassName] = useState("");
-  console.log(reservationInfo);
+  //   console.log(reservationInfo);
 
   const [reservationInfo1, setReservationInfo1] = useState({
     company: "",
@@ -329,8 +329,35 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
 
   const handleReservationSubmit = (e) => {
     e.preventDefault(); // 폼 제출 시 페이지 리로드 방지
-    console.log(reservationInfo);
-    console.log(reservationInfo1);
+
+    // 예약 정보를 담은 객체 예시, 실제 사용하는 변수명에 맞게 수정하세요.
+    const reservationData = {
+      agency: reservationInfo1.company,
+      client_name: reservationInfo1.name,
+      client_email: reservationInfo1.email,
+      client_phonenumber: reservationInfo1.phone,
+      etc: reservationInfo1.message,
+      totalPeople: reservationInfo.totalPeople,
+      time: reservationInfo.selectedTime,
+      date: reservationInfo.selectedDate,
+    };
+    console.log(reservationData);
+
+    // API 엔드포인트와 예약 데이터를 axios.post 메서드에 전달
+    instance
+      .post(`/reservation/${reservationInfo.selectedClassId}`, reservationData)
+      .then((response) => {
+        // 요청이 성공적으로 처리되면 실행될 코드
+        console.log(response.data); // 응답 데이터 콘솔에 출력
+        // alert("예약이 완료되었습니다."); // 사용자에게 예약 완료 알림
+        setStep(5);
+      })
+      .catch((error) => {
+        // 요청 처리 중 오류가 발생하면 실행될 코드
+        console.error("예약 처리 중 오류가 발생했습니다.", error);
+        // alert("예약 처리 중 오류가 발생했습니다. 나중에 다시 시도해주세요.");
+        setStep(4); // 사용자에게 오류 알림
+      });
   };
 
   useEffect(() => {
@@ -714,6 +741,73 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
                 예약하기
               </CustomButton>
             </Grid>
+          </Box>
+        )}
+        {step === 4 && (
+          <Box
+            sx={{
+              backgroundColor: "white",
+              padding: "20px",
+              maxWidth: "900px",
+              width: "100%",
+              height: "auto",
+              margin: "auto",
+              boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
+            }}
+          >
+            <Typography variant="h5" component="h2" gutterBottom>
+              예약 실패
+            </Typography>
+            {/* <Typography variant="body1" gutterBottom>
+              예약하기 전에 다음 사항을 반드시 확인해 주세요.
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              케이놀이문화재단은 고객님의 개인정보를 중요시 하며, "개인정보
+              보호법"을 준수합니다. 서비스 제공을 위해 아래와 같이 개인정보 수집
+              및 활용에 대한 동의를 요청합니다.
+            </Typography>
+            <ul>
+              <li>수집 목적: 서비스 제공 및 요금 정산, 회원 관리</li>
+              <li>수집 항목: 이름, 이메일 주소, 연락처, 주소 등</li>
+              <li>
+                보유 기간: 목적 달성 시 즉시 파기(단, 일부 정보는 법적 요구에
+                따라 보유할 수 있음)
+              </li>
+            </ul> */}
+            <Button variant="contained" color="error" onClick={onClose}>
+              취소
+            </Button>
+          </Box>
+        )}
+        {step === 5 && (
+          <Box
+            sx={{
+              backgroundColor: "white",
+              padding: "20px",
+              maxWidth: "600px",
+              width: "100%",
+              height: "auto",
+              margin: "auto",
+              boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
+              textAlign: "center", // 텍스트를 가운데 정렬
+            }}
+          >
+            <Typography variant="h5" component="h2" gutterBottom>
+              예약 승인 알림
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              귀하의 예약이 신청되었습니다. 예약 확인 및 자세한 사항은 등록하신
+              연락처로 문자 메시지를 통해 안내 드리겠습니다.
+            </Typography>
+
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={onClose}
+              sx={{ mt: 2 }}
+            >
+              닫기
+            </Button>
           </Box>
         )}
       </Box>

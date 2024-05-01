@@ -29,27 +29,27 @@ const ContactList = () => {
       flex: 0.1,
       field: "id",
       minWidth: 80,
-      headerName: "ID",
+      headerName: "문의 ID",
     },
     {
       flex: 0.25,
       minWidth: 200,
       field: "content_title",
-      headerName: "Name",
+      headerName: "문의",
     },
     {
       flex: 0.25,
       minWidth: 230,
       field: "user_email",
-      headerName: "Email",
+      headerName: "메일",
     },
     {
       flex: 0.15,
       type: "date",
       minWidth: 130,
-      headerName: "createdAt",
+      headerName: "문의날짜",
       field: "start_date",
-      //   valueGetter: (params) => new Date(params.value),
+      valueGetter: (params) => console.log(params),
     },
     {
       flex: 0.15,
@@ -57,12 +57,12 @@ const ContactList = () => {
       field: "content",
       headerName: "content",
     },
-    {
-      flex: 0.1,
-      field: "user_phone",
-      minWidth: 80,
-      headerName: "user_phone",
-    },
+    // {
+    //   flex: 0.1,
+    //   field: "user_phone",
+    //   minWidth: 80,
+    //   headerName: "user_phone",
+    // },
   ];
   return (
     // <Grid container spacing={2}>

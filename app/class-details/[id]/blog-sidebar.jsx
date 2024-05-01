@@ -66,26 +66,26 @@ const BlogSideBar = () => {
         </div>
 
         <div className="all__sidebar-item">
-          <h5>Tag'g</h5>
+          <h5>태그</h5>
           <div className="all__sidebar-item-tag">
             <ul>
               <li>
-                <a href="#">Hotel</a>
+                <a href="#">도자기</a>
               </li>
               <li>
-                <a href="#">Booking Now</a>
+                <a href="#">체험학습</a>
               </li>
               <li>
-                <a href="#">Luxury</a>
+                <a href="#">도자기 체험</a>
               </li>
               <li>
-                <a href="#">Single room</a>
+                <a href="#">공방</a>
               </li>
               <li>
-                <a href="#">Small suite</a>
+                <a href="#">물레 도자기</a>
               </li>
               <li>
-                <a href="#">Family</a>
+                <a href="#">힐링</a>
               </li>
             </ul>
           </div>

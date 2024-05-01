@@ -31,7 +31,7 @@ const Blogcomment = ({ blogsData }) => {
           alt=""
         />
         <div className="blog__details-left-meta"></div>
-        <p className="mb-25">{blogsData.content}</p>
+        <div dangerouslySetInnerHTML={{ __html: blogsData.content }} />
         {/* <p>
           Nulla at eleifend lorem. Praesent et ex sed metus egestas feugiat.
           Donec velit libero, feugiat ac dictum vel, dignissim id ante. Praesent

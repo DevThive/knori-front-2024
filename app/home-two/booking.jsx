@@ -57,7 +57,7 @@ const Booking = () => {
     selectedClassId: "",
     selectedDate: "",
     selectedTime: "",
-    selectedPeople: 0,
+    totalPeople: 0,
   });
   // 예약하기 버튼 클릭 이벤트 핸들러 수정
   const handleReservation = (e) => {
@@ -75,7 +75,7 @@ const Booking = () => {
           selectedClassId: selectedClassId,
           selectedDate: document.getElementById("date").value,
           selectedTime: selectedSchedule,
-          selectedPeople: document.getElementById("people").value,
+          totalPeople: document.getElementById("people").value,
         });
         setIsModalOpen(true);
       } else {

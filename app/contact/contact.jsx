@@ -43,6 +43,46 @@ const ContactList = () => {
 
   const columns = [
     // ... 컬럼 정의
+
+    {
+      flex: 0.1,
+      field: "id",
+      minWidth: 80,
+      headerName: "문의 ID",
+    },
+    {
+      flex: 0.25,
+      minWidth: 200,
+      field: "content_title",
+      headerName: "문의",
+    },
+    {
+      flex: 0.25,
+      minWidth: 230,
+      field: "user_email",
+      headerName: "메일",
+    },
+    {
+      flex: 0.15,
+      type: "date",
+      minWidth: 130,
+      headerName: "문의날짜",
+      field: "start_date",
+      valueGetter: (params) => console.log(params),
+    },
+    {
+      flex: 0.15,
+      minWidth: 120,
+      field: "content",
+      headerName: "content",
+    },
+    // {
+    //   flex: 0.1,
+    //   field: "user_phone",
+    //   minWidth: 80,
+    //   headerName: "user_phone",
+    // },
+
   ];
 
   return (

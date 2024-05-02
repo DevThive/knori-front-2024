@@ -8,23 +8,14 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import { DataGrid } from "@mui/x-data-grid";
-import { useNavigate } from "react-router-dom"; // React Router의 useNavigate를 import
 
 const ContactList = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [contactData, setContactData] = useState([]);
-  const [navigate, setNavigate] = useState(null); // navigate 함수를 저장할 state
 
   useEffect(() => {
     fetchContactList();
-  }, []);
-
-  useEffect(() => {
-    // 클라이언트 측에서만 useNavigate를 사용하도록 함
-    if (typeof window !== "undefined") {
-      setNavigate(useNavigate());
-    }
   }, []);
 
   const fetchContactList = async () => {
@@ -36,10 +27,14 @@ const ContactList = () => {
     }
   };
 
-  const handleRowClick = (params) => {
+  const handleRowClick = async (params) => {
     const contactId = params.row.id;
-    navigate(`/contact/${contactId}`); // navigate 함수를 사용하여 페이지 이동
+    // useNavigate를 동적으로 import합니다.
+    const navigate = (await import("react-router-dom")).useNavigate();
+    navigate(`/contact/${contactId}`);
   };
+
+  // 컬럼 정의 생략...
 
   const columns = [
     // ... 컬럼 정의
@@ -76,13 +71,7 @@ const ContactList = () => {
       field: "content",
       headerName: "content",
     },
-    // {
-    //   flex: 0.1,
-    //   field: "user_phone",
-    //   minWidth: 80,
-    //   headerName: "user_phone",
-    // },
-
+    // 추가 컬럼 정의 가능
   ];
 
   return (

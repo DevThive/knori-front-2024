@@ -646,6 +646,8 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
                     rows={6}
                     placeholder="기타 / 점심장소제공 여부 알려주세요."
                     //   value={reservationInfo.message}
+                    value={reservationInfo1.message}
+                    onChange={handleChange}
                   />
                 </Grid>
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import CarParking from "../../public/img/icon/car-parking.png";
 import Locaion1 from "../../public/img/icon/location-1.png";
 import SwimmingPool from "../../public/img/icon/swimming-pool.png";
+import Wifi from "../../public/img/icon/list-7.png";
 
 const Servicestwo = () => {
   return (

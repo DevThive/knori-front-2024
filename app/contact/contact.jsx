@@ -277,23 +277,45 @@ const contact = () => {
             padding: "20px",
             borderRadius: "10px",
             boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+            width: "50%",
+            maxWidth: "600px",
           }}
         >
           {/* 비밀번호 입력 모달 UI 구현 */}
+
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="비밀번호"
           />
-          <button
-            onClick={() => {
-              checkPassword(pwModalId); // 여기서 문제가 발생할 수 있습니다.
-              setShowPasswordModal(false);
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end", // 버튼을 오른쪽으로 정렬합니다.
+              alignItems: "center",
+              padding: "1%",
             }}
           >
-            확인
-          </button>
+            <div style={{ padding: "1%" }}>
+              <button
+                onClick={() => {
+                  setShowPasswordModal(false);
+                }}
+                style={{ marginRight: "10px" }}
+              >
+                취소
+              </button>
+              <button
+                onClick={() => {
+                  checkPassword(pwModalId); // 여기서 문제가 발생할 수 있습니다.
+                  setShowPasswordModal(false);
+                }}
+              >
+                확인
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

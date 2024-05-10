@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import {
   TextField,
@@ -9,6 +8,7 @@ import {
   Modal,
   Box,
 } from "@mui/material";
+import instance from "../axios/axiosInstance";
 
 const style = {
   position: "absolute",
@@ -22,19 +22,31 @@ const style = {
 };
 
 const ReservationCheck = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber1, setPhoneNumber1] = useState("010");
+  const [phoneNumber2, setPhoneNumber2] = useState("");
+  const [phoneNumber3, setPhoneNumber3] = useState("");
   const [open, setOpen] = useState(false);
   const [reservationInfo, setReservationInfo] = useState(null);
 
-  const handleChange = (event) => {
-    setPhoneNumber(event.target.value);
+  const handleChangePhoneNumber1 = (event) => {
+    setPhoneNumber1(event.target.value);
+  };
+
+  const handleChangePhoneNumber2 = (event) => {
+    setPhoneNumber2(event.target.value);
+  };
+
+  const handleChangePhoneNumber3 = (event) => {
+    setPhoneNumber3(event.target.value);
   };
 
   const handleSearch = () => {
-    // 예시로, 바로 모달을 엽니다. 실제로는 여기서 API 호출을 하고 그 결과를 처리합니다.
+    const phoneNumber = `${phoneNumber1}-${phoneNumber2}-${phoneNumber3}`;
     console.log("예약 조회:", phoneNumber);
-    // API 호출 후 결과를 예시로 설정합니다.
-    // setReservationInfo(결과);
+
+    const response = instance.post("/reservation", phoneNumber);
+
+    // 여기서 API 호출하고 결과를 처리합니다.
     setOpen(true);
   };
 
@@ -42,15 +54,29 @@ const ReservationCheck = () => {
 
   return (
     <Container maxWidth="sm" sx={{ mt: 13, mb: 13 }}>
-      <TextField
-        label="핸드폰 번호"
-        variant="outlined"
-        fullWidth
-        value={phoneNumber}
-        onChange={handleChange}
-        sx={{ mb: 2 }}
-        placeholder="핸드폰 번호를 입력하세요"
-      />
+      <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+        <TextField
+          label="앞자리"
+          variant="outlined"
+          value={phoneNumber1}
+          onChange={handleChangePhoneNumber1}
+          sx={{ flex: 1 }}
+        />
+        <TextField
+          label="중간자리"
+          variant="outlined"
+          value={phoneNumber2}
+          onChange={handleChangePhoneNumber2}
+          sx={{ flex: 1 }}
+        />
+        <TextField
+          label="끝자리"
+          variant="outlined"
+          value={phoneNumber3}
+          onChange={handleChangePhoneNumber3}
+          sx={{ flex: 1 }}
+        />
+      </Box>
       <Button
         variant="contained"
         fullWidth
@@ -76,7 +102,6 @@ const ReservationCheck = () => {
             예약 정보
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {/* 여기에 예약 정보를 표시합니다. 예: */}
             {reservationInfo ? reservationInfo : "조회 결과가 없습니다."}
           </Typography>
         </Box>

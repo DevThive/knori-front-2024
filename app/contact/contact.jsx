@@ -267,7 +267,7 @@ const contact = () => {
         </div>
       </div>
       {showPasswordModal && (
-          {/* 비밀번호 입력 모달 UI 구현 */}
+        /* 비밀번호 입력 모달 UI 구현 */
         <>
           <div
             style={{

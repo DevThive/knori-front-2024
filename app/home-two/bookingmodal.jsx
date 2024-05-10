@@ -331,11 +331,12 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
     e.preventDefault(); // 폼 제출 시 페이지 리로드 방지
 
     // 예약 정보를 담은 객체 예시, 실제 사용하는 변수명에 맞게 수정하세요.
+    const phoneNumber = `${reservationInfo1.phone1}-${reservationInfo1.phone2}-${reservationInfo1.phone3}`;
     const reservationData = {
       agency: reservationInfo1.company,
       client_name: reservationInfo1.name,
       client_email: reservationInfo1.email,
-      client_phonenumber: reservationInfo1.phone,
+      client_phonenumber: phoneNumber,
       etc: reservationInfo1.message,
       totalPeople: reservationInfo.totalPeople,
       time: reservationInfo.selectedTime,
@@ -626,14 +627,37 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
                   />
                 </Grid>
 
-                <Grid item xs={6}>
+                <Grid item xs={2}>
                   <TextField
                     fullWidth
-                    label="예약자 핸드폰번호"
-                    name="phone"
-                    value={reservationInfo1.phone}
+                    label="전화번호 앞자리"
+                    name="phone1"
+                    value={reservationInfo1.phone1}
                     onChange={handleChange}
                     required
+                    inputProps={{ maxLength: 3 }} // 최대 길이 제한
+                  />
+                </Grid>
+                <Grid item xs={2}>
+                  <TextField
+                    fullWidth
+                    label="가운데 자리"
+                    name="phone2"
+                    value={reservationInfo1.phone2}
+                    onChange={handleChange}
+                    required
+                    inputProps={{ maxLength: 4 }} // 최대 길이 제한
+                  />
+                </Grid>
+                <Grid item xs={2}>
+                  <TextField
+                    fullWidth
+                    label="끝자리"
+                    name="phone3"
+                    value={reservationInfo1.phone3}
+                    onChange={handleChange}
+                    required
+                    inputProps={{ maxLength: 4 }} // 최대 길이 제한
                   />
                 </Grid>
 

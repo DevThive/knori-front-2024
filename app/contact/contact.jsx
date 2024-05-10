@@ -267,56 +267,70 @@ const contact = () => {
         </div>
       </div>
       {showPasswordModal && (
-        <div
-          style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "white",
-            padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-            width: "50%",
-            maxWidth: "600px",
-          }}
-        >
-          {/* 비밀번호 입력 모달 UI 구현 */}
-
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="비밀번호"
-          />
+        /* 비밀번호 입력 모달 UI 구현 */
+        <>
           <div
             style={{
-              display: "flex",
-              justifyContent: "flex-end", // 버튼을 오른쪽으로 정렬합니다.
-              alignItems: "center",
-              padding: "1%",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0,0,0,0.5)", // 어두운 오버레이 배경
+              zIndex: 1000, // 모달 창보다 한 단계 아래에 위치하도록 설정
+            }}
+          ></div>
+          <div
+            style={{
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              backgroundColor: "white",
+              padding: "20px",
+              borderRadius: "10px",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+              width: "50%",
+              maxWidth: "600px",
+              zIndex: 1001, // 오버레이 위에 모달 창이 표시되도록 설정
             }}
           >
-            <div style={{ padding: "1%" }}>
-              <button
-                onClick={() => {
-                  setShowPasswordModal(false);
-                }}
-                style={{ marginRight: "10px" }}
-              >
-                취소
-              </button>
-              <button
-                onClick={() => {
-                  checkPassword(pwModalId); // 여기서 문제가 발생할 수 있습니다.
-                  setShowPasswordModal(false);
-                }}
-              >
-                확인
-              </button>
+            {/* 비밀번호 입력 모달 UI 구현 */}
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="비밀번호"
+            />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "center",
+                padding: "1%",
+              }}
+            >
+              <div style={{ padding: "1%" }}>
+                <button
+                  onClick={() => {
+                    setShowPasswordModal(false);
+                  }}
+                  style={{ marginRight: "10px" }}
+                >
+                  취소
+                </button>
+                <button
+                  onClick={() => {
+                    checkPassword(pwModalId);
+                    setShowPasswordModal(false);
+                  }}
+                >
+                  확인
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

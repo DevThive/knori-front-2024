@@ -8,7 +8,7 @@ import SEO from "@/components/seo";
 const Blogdetails = () => {
   return (
     <>
-      <SEO pageTitle="Blog Details" />
+      <SEO pageTitle="Reservation Check" />
       <HeaderTwo />
       <BreadCrumb
         title="예약조회"

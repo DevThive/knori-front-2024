@@ -30,11 +30,13 @@ const ReservationCheck = () => {
   const [phoneNumber3, setPhoneNumber3] = useState("");
   const [open, setOpen] = useState(false);
   const [reservationInfo, setReservationInfo] = useState([]);
+  const [openDetails, setOpenDetails] = useState({});
 
-  const [selectedReservation, setSelectedReservation] = useState(null);
-
-  const handleListItemClick = (reservation) => {
-    setSelectedReservation(reservation);
+  const toggleDetails = (id) => {
+    setOpenDetails((prevOpenDetails) => ({
+      ...prevOpenDetails,
+      [id]: !prevOpenDetails[id],
+    }));
   };
 
   const handleChangePhoneNumber1 = (event) => {
@@ -50,21 +52,21 @@ const ReservationCheck = () => {
   };
 
   const handleSearch = async () => {
-    const phoneNumber = `${phoneNumber1}-${phoneNumber2}-${phoneNumber3}`;
-    // console.log("예약 조회:", phoneNumber);
+    const phoneNumber = `${phoneNumber1}${phoneNumber2}${phoneNumber3}`;
+    console.log("예약 조회:", phoneNumber);
 
     try {
       const response = await instance.get(
         `/reservation/findbyphonenumber/${phoneNumber}`
       );
-      console.log(response.data);
-      setReservationInfo(response.data);
-    } catch {
-      console.log("서버에 오류가 발생했습니다.");
-    }
 
-    // 여기서 API 호출하고 결과를 처리합니다.
-    setOpen(true);
+      setReservationInfo(
+        Array.isArray(response.data) ? response.data : [response.data]
+      );
+      setOpen(true);
+    } catch (error) {
+      console.error("예약 정보 조회 중 오류가 발생했습니다.", error);
+    }
   };
 
   const handleClose = () => setOpen(false);
@@ -113,72 +115,36 @@ const ReservationCheck = () => {
         }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        BackdropProps={{
-          style: { backgroundColor: "rgba(255, 255, 255, 0.5)" },
-        }}
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             예약 정보
           </Typography>
-          {reservationInfo.length > 0 ? (
-            <>
-              <List
-                sx={{
-                  width: "100%",
-                  maxWidth: 360,
-                  bgcolor: "background.paper",
-                }}
-              >
-                {reservationInfo.map((reservation) => (
-                  <ListItem
-                    button
-                    key={reservation.id}
-                    onClick={() => handleListItemClick(reservation)}
-                  >
-                    <ListItemText
-                      primary={reservation.client_name}
-                      secondary={reservation.date}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-              {
-                selectedReservation ? (
-                  <Box sx={{ mt: 2 }}>
-                    <Typography sx={{ mt: 2 }}>
-                      이름: {selectedReservation.client_name}
-                    </Typography>
-                    <Typography sx={{ mt: 2 }}>
-                      날짜: {selectedReservation.date}
-                    </Typography>
-                    <Typography sx={{ mt: 2 }}>
-                      클래스명: {selectedReservation.className}
-                    </Typography>
-                    <Typography sx={{ mt: 2 }}>
-                      클래스 시간: {selectedReservation.classTime}
-                    </Typography>
-                    <Typography sx={{ mt: 2 }}>
-                      기타(ETC):{" "}
-                      {selectedReservation.etc
-                        ? selectedReservation.etc
-                        : "없음"}
-                    </Typography>
-                    <Button
-                      sx={{ mt: 2 }}
-                      variant="contained"
-                      onClick={() => {
-                        console.log("수정 버튼 클릭");
-                      }}
-                    >
-                      수정
-                    </Button>
-                  </Box>
-                ) : null /* "선택된 예약 정보가 없습니다." 메시지 제거 */
-              }
-            </>
+          {reservationInfo && reservationInfo.length > 0 ? (
+            <List>
+              {reservationInfo.map((reservation) => (
+                <ListItem
+                  key={reservation.id}
+                  button
+                  onClick={() => toggleDetails(reservation.id)}
+                >
+                  <ListItemText primary={`예약 날짜: ${reservation.date}`} />
+                  {openDetails[reservation.id] && (
+                    <Box>
+                      <Typography>
+                        예약자 이름: {reservation.client_name}
+                      </Typography>
+                      <Typography>
+                        예약 인원: {reservation.totalPeople}
+                      </Typography>
+                      {/* 여기에 더 많은 예약 정보를 추가할 수 있습니다 */}
+                    </Box>
+                  )}
+                </ListItem>
+              ))}
+            </List>
           ) : (
-            <Typography sx={{ mt: 2 }}>예약 정보가 없습니다.</Typography>
+            <Typography>조회 결과가 없습니다.</Typography>
           )}
         </Box>
       </Modal>

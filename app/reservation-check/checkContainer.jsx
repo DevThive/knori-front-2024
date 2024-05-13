@@ -7,6 +7,9 @@ import {
   Typography,
   Modal,
   Box,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import instance from "../axios/axiosInstance";
 
@@ -26,7 +29,13 @@ const ReservationCheck = () => {
   const [phoneNumber2, setPhoneNumber2] = useState("");
   const [phoneNumber3, setPhoneNumber3] = useState("");
   const [open, setOpen] = useState(false);
-  const [reservationInfo, setReservationInfo] = useState(null);
+  const [reservationInfo, setReservationInfo] = useState([]);
+
+  const [selectedReservation, setSelectedReservation] = useState(null);
+
+  const handleListItemClick = (reservation) => {
+    setSelectedReservation(reservation);
+  };
 
   const handleChangePhoneNumber1 = (event) => {
     setPhoneNumber1(event.target.value);
@@ -40,11 +49,19 @@ const ReservationCheck = () => {
     setPhoneNumber3(event.target.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     const phoneNumber = `${phoneNumber1}-${phoneNumber2}-${phoneNumber3}`;
-    console.log("예약 조회:", phoneNumber);
+    // console.log("예약 조회:", phoneNumber);
 
-    const response = instance.post("/reservation", phoneNumber);
+    try {
+      const response = await instance.get(
+        `/reservation/findbyphonenumber/${phoneNumber}`
+      );
+      console.log(response.data);
+      setReservationInfo(response.data);
+    } catch {
+      console.log("서버에 오류가 발생했습니다.");
+    }
 
     // 여기서 API 호출하고 결과를 처리합니다.
     setOpen(true);
@@ -90,7 +107,10 @@ const ReservationCheck = () => {
       </Button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={() => {
+          handleClose();
+          setSelectedReservation(null); // 모달 닫을 때 선택된 예약 초기화
+        }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         BackdropProps={{
@@ -101,9 +121,65 @@ const ReservationCheck = () => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             예약 정보
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {reservationInfo ? reservationInfo : "조회 결과가 없습니다."}
-          </Typography>
+          {reservationInfo.length > 0 ? (
+            <>
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                  bgcolor: "background.paper",
+                }}
+              >
+                {reservationInfo.map((reservation) => (
+                  <ListItem
+                    button
+                    key={reservation.id}
+                    onClick={() => handleListItemClick(reservation)}
+                  >
+                    <ListItemText
+                      primary={reservation.client_name}
+                      secondary={reservation.date}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+              {
+                selectedReservation ? (
+                  <Box sx={{ mt: 2 }}>
+                    <Typography sx={{ mt: 2 }}>
+                      이름: {selectedReservation.client_name}
+                    </Typography>
+                    <Typography sx={{ mt: 2 }}>
+                      날짜: {selectedReservation.date}
+                    </Typography>
+                    <Typography sx={{ mt: 2 }}>
+                      클래스명: {selectedReservation.className}
+                    </Typography>
+                    <Typography sx={{ mt: 2 }}>
+                      클래스 시간: {selectedReservation.classTime}
+                    </Typography>
+                    <Typography sx={{ mt: 2 }}>
+                      기타(ETC):{" "}
+                      {selectedReservation.etc
+                        ? selectedReservation.etc
+                        : "없음"}
+                    </Typography>
+                    <Button
+                      sx={{ mt: 2 }}
+                      variant="contained"
+                      onClick={() => {
+                        console.log("수정 버튼 클릭");
+                      }}
+                    >
+                      수정
+                    </Button>
+                  </Box>
+                ) : null /* "선택된 예약 정보가 없습니다." 메시지 제거 */
+              }
+            </>
+          ) : (
+            <Typography sx={{ mt: 2 }}>예약 정보가 없습니다.</Typography>
+          )}
         </Box>
       </Modal>
     </Container>

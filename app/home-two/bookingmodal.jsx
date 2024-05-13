@@ -331,7 +331,7 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
     e.preventDefault(); // 폼 제출 시 페이지 리로드 방지
 
     // 예약 정보를 담은 객체 예시, 실제 사용하는 변수명에 맞게 수정하세요.
-    const phoneNumber = `${reservationInfo1.phone1}-${reservationInfo1.phone2}-${reservationInfo1.phone3}`;
+    const phoneNumber = `${reservationInfo1.phone1}${reservationInfo1.phone2}${reservationInfo1.phone3}`;
     const reservationData = {
       agency: reservationInfo1.company,
       client_name: reservationInfo1.name,

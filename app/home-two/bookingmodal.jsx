@@ -559,7 +559,7 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
           <Box
             sx={{
               //   padding: { xs: "10px", sm: "30px" },
-              maxHeight: { xs: "90vh", sm: "75vh" }, // 화면 높이의 90%를 최대 높이로 설정
+              maxHeight: { xs: "85vh", sm: "70vh" }, // 화면 높이의 90%를 최대 높이로 설정
               height: "auto", // 내용이 넘칠 경우 스크롤 가능
             }}
           >
@@ -590,7 +590,7 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
                 padding: { xs: "10px", sm: "30px" },
                 maxWidth: "80vw", // 화면 너비의 90%를 최대 너비로 설정
                 width: "100%",
-                maxHeight: "75vh", // 화면 높이의 90%를 최대 높이로 설정
+                maxHeight: "70vh", // 화면 높이의 90%를 최대 높이로 설정
                 overflowY: "auto", // 내용이 넘칠 경우 스크롤 가능
               }}
             >

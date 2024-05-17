@@ -32,6 +32,24 @@ const ReservationCheck = () => {
   const [openDetails, setOpenDetails] = useState({});
   const [showResults, setShowResults] = useState(false);
 
+  const [editMode, setEditMode] = useState({}); // 수정 모드 상태
+  const [inquiry, setInquiry] = useState({}); // 문의 제목과 내용 상태
+
+  const toggleEditMode = (id) => {
+    setEditMode((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const handleInquiryChange = (id, field, value) => {
+    setInquiry((prev) => ({
+      ...prev,
+      [id]: {
+        ...prev[id],
+        [field]: value,
+        id,
+      },
+    }));
+  };
+
   const handleChange = (part, value) => {
     setPhoneNumber((prev) => ({ ...prev, [part]: value }));
   };
@@ -51,6 +69,18 @@ const ReservationCheck = () => {
       console.log(response.data);
     } catch (error) {
       console.error("예약 정보 조회 중 오류가 발생했습니다.", error);
+    }
+  };
+
+  const EditHandleSubmit = async (id) => {
+    console.log(inquiry[id].title);
+    try {
+      const response = await instance.post(`/update-contact/${id}`, {
+        content_title: inquiry[id].title,
+        content: inquiry[id].content,
+      });
+    } catch {
+      console.log("서버에 오류가 발생했습니다.", error);
     }
   };
 
@@ -137,28 +167,86 @@ const ReservationCheck = () => {
                 <div style={{ width: "100%" }}>
                   {" "}
                   {/* 이 부분을 수정했습니다. */}
+                  <Divider sx={{ mb: 2 }} />
+                  <Typography variant="h6" sx={{ mb: 1 }}>
+                    클래스명: {reservation.class.title}
+                  </Typography>
+                  <Divider sx={{ mb: 1 }} />
                   <Typography variant="h6" sx={{ mb: 1 }}>
                     예약자 이름: {reservation.client_name}
                   </Typography>
-                  <Divider sx={{ mb: 1 }} />
                   <Typography variant="body1" color="textSecondary">
                     예약 날짜: {reservation.date}
                   </Typography>
                   <Divider sx={{ mb: 2 }} />
                   <Typography variant="body2" sx={{ mb: 1 }}>
-                    예약 장소: {reservation.location}
+                    예약 날짜: {reservation.date}
                   </Typography>
                   <Typography variant="body2" sx={{ mb: 1 }}>
-                    예약 인원: {reservation.number_of_people}
+                    예약 시간: {reservation.time}
+                  </Typography>
+                  <Typography variant="body2" sx={{ mb: 1 }}>
+                    예약 인원: {reservation.totalPeople}
                   </Typography>
                   <Box
                     sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}
                   >
-                    <Button variant="outlined" size="small">
-                      수정하기
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      onClick={() => toggleEditMode(reservation.id)} // 수정 모드 상태를 토글하는 함수 호출
+                    >
+                      {editMode[reservation.id] ? "닫기" : "수정요청"}
                     </Button>
                   </Box>
                 </div>
+              )}
+              {editMode[reservation.id] && (
+                <Box sx={{ width: "100%" }}>
+                  {/* "수정하기" 클릭 시 나타나는 입력 필드 */}
+                  <Divider sx={{ mb: 2 }} />
+                  <TextField
+                    fullWidth
+                    label="문의 제목"
+                    variant="outlined"
+                    value={inquiry[reservation.id]?.title || ""}
+                    onChange={(e) =>
+                      handleInquiryChange(
+                        reservation.id,
+                        "title",
+                        e.target.value
+                      )
+                    }
+                    sx={{ my: 2 }}
+                  />
+                  <TextField
+                    fullWidth
+                    label="문의 내용"
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    value={inquiry[reservation.id]?.content || ""}
+                    onChange={(e) =>
+                      handleInquiryChange(
+                        reservation.id,
+                        "content",
+                        e.target.value
+                      )
+                    }
+                  />
+                  <Divider sx={{ mb: 1 }} />
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    onClick={() => EditHandleSubmit(reservation.id)} // 화살표 함수를 사용하여 id 전달
+                    sx={{
+                      backgroundColor: "#8B4513",
+                      "&:hover": { backgroundColor: "#8B4513", opacity: 0.9 },
+                    }}
+                  >
+                    요청하기
+                  </Button>
+                </Box>
               )}
             </ListItem>
           ))}

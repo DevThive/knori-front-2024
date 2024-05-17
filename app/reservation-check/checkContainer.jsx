@@ -56,7 +56,7 @@ const ReservationCheck = () => {
 
   const handleSearch = async () => {
     const fullPhoneNumber = `${phoneNumber.first}${phoneNumber.middle}${phoneNumber.last}`;
-    console.log("예약 조회:", fullPhoneNumber);
+    // console.log("예약 조회:", fullPhoneNumber);
 
     try {
       const response = await instance.get(
@@ -73,13 +73,15 @@ const ReservationCheck = () => {
   };
 
   const EditHandleSubmit = async (id) => {
-    console.log(inquiry[id].title);
+    // console.log(inquiry[id].title);
     try {
       const response = await instance.post(`/update-contact/${id}`, {
         content_title: inquiry[id].title,
         content: inquiry[id].content,
       });
-    } catch {
+      setEditMode({});
+      alert("문의완료");
+    } catch (error) {
       console.log("서버에 오류가 발생했습니다.", error);
     }
   };
@@ -101,7 +103,17 @@ const ReservationCheck = () => {
             label={`${part}`}
             variant="outlined"
             value={phoneNumber[part]}
-            onChange={(e) => handleChange(part, e.target.value)}
+            onChange={(e) => {
+              // 숫자만 입력 받도록 검사합니다.
+              const value = e.target.value;
+              // 입력된 값이 숫자만 포함하고 있으며, 길이가 4자 이하인지 확인합니다.
+              if (value === "" || (value.length <= 4 && /^\d*$/.test(value))) {
+                handleChange(part, value);
+              }
+            }}
+            inputProps={{
+              maxLength: 4, // 최대 글자 수를 4로 제한합니다.
+            }}
             sx={{ flex: 1 }}
           />
         ))}

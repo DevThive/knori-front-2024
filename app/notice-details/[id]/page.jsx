@@ -1,9 +1,10 @@
-import BreadCrumb from '@/app/breadcrumb/breadcrumb';
-import FooterTwo from '@/app/footer/footerTwo';
-import Blogdetailscontainer from './blog-details-container';
-import HeaderTwo from '@/app/header/headerTwo';
-import ScrollToTopButton from '@/app/scroll-to-top/scrollToTop';
-import SEO from '@/components/seo';
+import BreadCrumb from "@/app/breadcrumb/breadcrumb";
+import FooterTwo from "@/app/footer/footerTwo";
+import Blogdetailscontainer from "./blog-details-container";
+import HeaderTwo from "@/app/header/headerTwo";
+import ScrollToTopButton from "@/app/scroll-to-top/scrollToTop";
+import SEO from "@/components/seo";
+import KakaoTalkContactButton from "@/app/kakao/kakaomodal";
 
 const Blogdetails = () => {
   return (
@@ -17,6 +18,7 @@ const Blogdetails = () => {
       />
       <Blogdetailscontainer />
       <FooterTwo />
+      <KakaoTalkContactButton />
       <ScrollToTopButton />
     </>
   );

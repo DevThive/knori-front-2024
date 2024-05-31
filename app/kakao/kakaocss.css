@@ -1,0 +1,35 @@
+.kakao-button-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem; /* 오른쪽 하단에 위치 */
+  z-index: 99;
+  transition: bottom 0.3s;
+}
+.kakao-button-container.with-top-button {
+  bottom: 6rem; /* 스크롤 탑 버튼이 나타날 때 카카오 버튼을 위로 이동 */
+}
+.kakao-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fee500; /* 카카오 브랜드 색상 */
+  color: #3c1e1e; /* 글자 색상 */
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 99;
+  overflow: hidden; /* 이미지가 버튼 테두리를 넘어가지 않도록 */
+}
+.kakao-button-image-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

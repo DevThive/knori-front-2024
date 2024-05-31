@@ -6,6 +6,7 @@ import Classcontainer from "./class-info";
 import BreadCrumb from "../breadcrumb/breadcrumb";
 import HeaderTwo from "../header/headerTwo";
 import SEO from "@/components/seo";
+import KakaoTalkContactButton from "@/app/kakao/kakaomodal";
 
 const Class = () => {
   return (
@@ -19,6 +20,7 @@ const Class = () => {
       />
       <Classcontainer />
       <FooterTwo />
+      <KakaoTalkContactButton />
       <ScrollToTopButton />
     </>
   );

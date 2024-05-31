@@ -331,7 +331,7 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
     e.preventDefault(); // 폼 제출 시 페이지 리로드 방지
 
     // 예약 정보를 담은 객체 예시, 실제 사용하는 변수명에 맞게 수정하세요.
-    const phoneNumber = `${reservationInfo1.phone1}-${reservationInfo1.phone2}-${reservationInfo1.phone3}`;
+    const phoneNumber = `${reservationInfo1.phone1}${reservationInfo1.phone2}${reservationInfo1.phone3}`;
     const reservationData = {
       agency: reservationInfo1.company,
       client_name: reservationInfo1.name,
@@ -559,7 +559,7 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
           <Box
             sx={{
               //   padding: { xs: "10px", sm: "30px" },
-              maxHeight: { xs: "90vh", sm: "75vh" }, // 화면 높이의 90%를 최대 높이로 설정
+              maxHeight: { xs: "85vh", sm: "70vh" }, // 화면 높이의 90%를 최대 높이로 설정
               height: "auto", // 내용이 넘칠 경우 스크롤 가능
             }}
           >
@@ -590,7 +590,7 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
                 padding: { xs: "10px", sm: "30px" },
                 maxWidth: "80vw", // 화면 너비의 90%를 최대 너비로 설정
                 width: "100%",
-                maxHeight: "75vh", // 화면 높이의 90%를 최대 높이로 설정
+                maxHeight: "70vh", // 화면 높이의 90%를 최대 높이로 설정
                 overflowY: "auto", // 내용이 넘칠 경우 스크롤 가능
               }}
             >

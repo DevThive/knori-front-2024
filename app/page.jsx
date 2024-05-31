@@ -15,6 +15,7 @@ import Mainclass from "./home-two/deluxe";
 import Instagram from "./home-two/instagram";
 import Place from "./home-two/place";
 import Analytics from "./googleAnalyties/googleApi";
+import KakaoTalkContactButton from "./kakao/kakaomodal";
 
 const Home = () => {
   return (
@@ -30,6 +31,7 @@ const Home = () => {
       <Blog />
       <Instagram />
       <FooterTwo />
+      <KakaoTalkContactButton />
       <ScrollToTopButton />
       <Analytics />
     </>

@@ -4,6 +4,7 @@ import Classdetailscontainer from "./blog-details-container";
 import HeaderTwo from "@/app/header/headerTwo";
 import ScrollToTopButton from "@/app/scroll-to-top/scrollToTop";
 import SEO from "@/components/seo";
+import KakaoTalkContactButton from "@/app/kakao/kakaomodal";
 
 const Classdetails = () => {
   return (
@@ -17,6 +18,7 @@ const Classdetails = () => {
       />
       <Classdetailscontainer />
       <FooterTwo />
+      <KakaoTalkContactButton />
       <ScrollToTopButton />
     </>
   );

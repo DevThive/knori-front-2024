@@ -4,6 +4,7 @@ import ReservationCheck from "./checkContainer";
 import HeaderTwo from "@/app/header/headerTwo";
 import ScrollToTopButton from "@/app/scroll-to-top/scrollToTop";
 import SEO from "@/components/seo";
+import KakaoTalkContactButton from "@/app/kakao/kakaomodal";
 
 const Blogdetails = () => {
   return (
@@ -17,6 +18,7 @@ const Blogdetails = () => {
       />
       <ReservationCheck />
       <FooterTwo />
+      <KakaoTalkContactButton />
       <ScrollToTopButton />
     </>
   );

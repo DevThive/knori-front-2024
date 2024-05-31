@@ -4,6 +4,7 @@ import FooterTwo from "../footer/footerTwo";
 import ScrollToTopButton from "../scroll-to-top/scrollToTop";
 import Contactcontainer from "./contact-container";
 import HeaderTwo from "../header/headerTwo";
+import KakaoTalkContactButton from "@/app/kakao/kakaomodal";
 
 const Contact = () => {
   return (
@@ -17,6 +18,7 @@ const Contact = () => {
       />
       <Contactcontainer />
       <FooterTwo />
+      <KakaoTalkContactButton />
       <ScrollToTopButton />
     </>
   );

@@ -15,7 +15,7 @@ const Blogdetailscontainer = () => {
     const fetchData = async () => {
       try {
         const response = await instance.get(`/notices/${params.id}`);
-        console.log(response.data);
+        // console.log(response.data);
 
         setNoticeData(response.data);
       } catch (error) {

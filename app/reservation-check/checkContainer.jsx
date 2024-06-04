@@ -66,7 +66,7 @@ const ReservationCheck = () => {
         Array.isArray(response.data) ? response.data : [response.data]
       );
       setShowResults(true); // 조회 결과를 표시
-      console.log(response.data);
+      // console.log(response.data);
     } catch (error) {
       console.error("예약 정보 조회 중 오류가 발생했습니다.", error);
     }

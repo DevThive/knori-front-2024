@@ -102,8 +102,8 @@ const HeaderTwo = ({ variant }) => {
                     </DropDown>
                   </li>
                   <li>
-                    {/* <Link href="/gallery">갤러리</Link> */}
-                    <a onClick={() => alert("업데이트 예정입니다.")}>갤러리</a>
+                    <Link href="/gallery">갤러리</Link>
+                    {/* <a onClick={() => alert("업데이트 예정입니다.")}>갤러리</a> */}
                   </li>
                   <li>
                     <Link href="/contact">문의하기</Link>

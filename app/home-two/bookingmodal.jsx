@@ -342,14 +342,14 @@ const Modal = ({ isOpen, onClose, reservationInfo, setReservationInfo }) => {
       time: reservationInfo.selectedTime,
       date: reservationInfo.selectedDate,
     };
-    console.log(reservationData);
+    // console.log(reservationData);
 
     // API 엔드포인트와 예약 데이터를 axios.post 메서드에 전달
     instance
       .post(`/reservation/${reservationInfo.selectedClassId}`, reservationData)
       .then((response) => {
         // 요청이 성공적으로 처리되면 실행될 코드
-        console.log(response.data); // 응답 데이터 콘솔에 출력
+        // console.log(response.data); // 응답 데이터 콘솔에 출력
         // alert("예약이 완료되었습니다."); // 사용자에게 예약 완료 알림
         setStep(5);
       })

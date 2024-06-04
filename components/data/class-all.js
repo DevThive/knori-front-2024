@@ -21,7 +21,7 @@ async function classlist() {
       };
     });
 
-    console.log(formattedData);
+    // console.log(formattedData);
     return formattedData;
   } catch (error) {
     console.log("데이터를 가져오는 중 오류가 발생했습니다.", error);

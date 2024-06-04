@@ -21,7 +21,7 @@ const Contactcontainer = () => {
       const paymentSuccess = await processPayment();
       if (paymentSuccess) {
         const response = await axios.post("/reservation/:classId", formData);
-        console.log(response.data);
+        // console.log(response.data);
         await submitReservation();
         alert("예약이 완료되었습니다!");
       } else {

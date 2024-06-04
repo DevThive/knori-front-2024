@@ -1,17 +1,29 @@
-'use client';
-import blogsData from '@/components/data/blogs';
-import { useState } from 'react';
-import Currentblogitems from './current-blog-items';
-import Paginations from './paginations';
+"use client";
+import blogsData from "@/components/data/blogs";
+import instagramcontain from "@/components/data/instadata";
+import { useState, useEffect } from "react";
+import Currentblogitems from "./current-blog-items";
+import Paginations from "./paginations";
 
 const ITEMS_PER_PAGE = 6;
 
 const Bloggridcontainer = () => {
+  const [instagramData, setInstagramData] = useState([]); // 상태 추가
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await instagramcontain();
+      setInstagramData(data);
+      console.log(data);
+    };
+    fetchData();
+  }, []);
+
   const [currentPage, setCurrentPage] = useState(0);
-  const totalPages = Math.ceil(blogsData.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(instagramData.length / ITEMS_PER_PAGE);
   const startIndex = currentPage * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentBlogItems = blogsData.slice(startIndex, endIndex);
+  const currentBlogItems = instagramData.slice(startIndex, endIndex);
 
   const handleNextPage = () => {
     if (currentPage < totalPages - 1) {

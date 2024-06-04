@@ -15,7 +15,7 @@ const Booking = () => {
   const [totalPeople, setTotalPeople] = useState(1); // 총 인원수 상태 추가
   const handleClassSelect = (selectedClassId, ref) => {
     setSelectedClassId(selectedClassId);
-    console.log(selectedClassId);
+    // console.log(selectedClassId);
   };
   const handleDateChange = (e) => {
     const selectedDate = new Date(e.target.value);
@@ -50,7 +50,7 @@ const Booking = () => {
     };
     fetchClassSchedules();
   }, [selectedClassId]);
-  console.log(classSchedules);
+  // console.log(classSchedules);
   // 모달 상태와 예약 정보 상태를 추가합니다.
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [reservationInfo, setReservationInfo] = useState({

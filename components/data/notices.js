@@ -27,7 +27,7 @@ async function noticeData() {
     });
 
     // 가공된 데이터 반환
-    console.log(formattedData);
+    // console.log(formattedData);
     return formattedData;
   } catch (error) {
     console.error("데이터를 가져오는 중 오류가 발생했습니다:", error);

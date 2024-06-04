@@ -20,7 +20,7 @@ const contact = () => {
       try {
         const response = await instance.get("/contact/contactlists");
         setInquiries(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.error("문의 리스트를 불러오는데 실패했습니다.", error);
       }
@@ -109,7 +109,7 @@ const contact = () => {
     isPrivate,
     password
   ) => {
-    console.log(inquiry, name, phone, title, isPrivate, password);
+    // console.log(inquiry, name, phone, title, isPrivate, password);
     try {
       // 주의: 여기도 `instance.post`로 변경해야 할 수 있습니다.
       const response = await instance.post("contact/addcontact", {

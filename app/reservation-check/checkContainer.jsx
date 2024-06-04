@@ -264,7 +264,9 @@ const ReservationCheck = () => {
           ))}
         </List>
       ) : showResults ? (
-        <Typography>조회 결과가 없습니다.</Typography>
+        <Typography style={{ marginTop: "20px" }}>
+          조회 결과가 없습니다.
+        </Typography>
       ) : null}
     </Container>
   );

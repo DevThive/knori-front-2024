@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <link rel="icon" type="image/png" href="favicon.png" />
-      <body>
+      <body style={{ zoom: "95%" }}>
         <NextTopLoader showSpinner={false} />
         {children}
       </body>

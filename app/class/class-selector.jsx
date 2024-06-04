@@ -8,14 +8,14 @@ const ClassSelector = (props) => {
   const [selectedClass, setSelectedClass] = useState("");
   const router = useRouter();
 
-  console.log(props.onClassSelect);
+  // console.log(props.onClassSelect);
 
   useEffect(() => {
     const fetchClassList = async () => {
       try {
         const response = await instance.get("class"); // 클래스 목록을 가져오는 API 엔드포인트
         setClassList(response.data); // 가져온 클래스 목록 설정
-        console.log("response.data", response.data);
+        // console.log("response.data", response.data);
       } catch (error) {
         console.error("클래스 목록을 가져오는 데 실패했습니다:", error);
       }

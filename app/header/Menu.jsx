@@ -44,7 +44,8 @@ export const Room = () => (
       <Link href="/reservation-check">예약 조회</Link>
     </li>
     <li>
-      <Link href="/review-list">클래스 리뷰</Link>
+      {/* <Link href="/review-list">클래스 리뷰</Link> */}
+      <a onClick={() => alert("업데이트 예정입니다.")}>클래스 리뷰</a>
     </li>
     {/* <li>
       <Link href="/room-details">Room Details</Link>

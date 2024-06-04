@@ -36,6 +36,7 @@ const Instagram = () => {
     const fetchData = async () => {
       const data = await instagramcontain();
       setInstagramData(data);
+      console.log(data);
     };
     fetchData();
   }, []);

@@ -1,9 +1,10 @@
-import SEO from '@/components/seo';
-import BreadCrumb from '../breadcrumb/breadcrumb';
-import FooterTwo from '../footer/footerTwo';
-import HeaderTwo from '../header/headerTwo';
-import ScrollToTopButton from '../scroll-to-top/scrollToTop';
-import Bloggridcontainer from './blog-grid-container';
+import SEO from "@/components/seo";
+import BreadCrumb from "../breadcrumb/breadcrumb";
+import FooterTwo from "../footer/footerTwo";
+import HeaderTwo from "../header/headerTwo";
+import ScrollToTopButton from "../scroll-to-top/scrollToTop";
+import Bloggridcontainer from "./blog-grid-container";
+import KakaoTalkContactButton from "@/app/kakao/kakaomodal";
 
 const Bloggrid = () => {
   return (
@@ -17,6 +18,7 @@ const Bloggrid = () => {
       />
       <Bloggridcontainer />
       <FooterTwo />
+      <KakaoTalkContactButton />
       <ScrollToTopButton />
     </>
   );

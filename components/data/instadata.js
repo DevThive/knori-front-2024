@@ -5,7 +5,7 @@ export const getInstagramContents = async () => {
     const { data } = await axios.get(`
 https://graph.instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID}/media?fields=id,media_type,media_url,permalink,thumbnail_url,username,caption&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN}
 `);
-    console.log(data.data);
+    // console.log(data.data);
     return data.data;
   } catch (error) {
     console.error("Instagram API 요청 중 에러 발생:", error);

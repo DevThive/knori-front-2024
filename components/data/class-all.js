@@ -14,6 +14,7 @@ async function classlist() {
       return {
         id: item.id,
         title: item.title,
+        price: item.price,
         content: item.content,
         photo: pureImageUrl,
         state: "미정",

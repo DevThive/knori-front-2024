@@ -33,7 +33,7 @@ const Casino = ({ currentClassItems }) => {
                         <a href={`/class-details/${item.id}`}>{item.title}</a>
                       </h4>
                       <h5>
-                        <span>18,000원/1인</span>
+                        <span>{item.price}원/1인</span>
                       </h5>
 
                       <div className="deluxe__three-item-image-content-bottom">

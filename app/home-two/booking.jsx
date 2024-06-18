@@ -62,7 +62,7 @@ const Booking = () => {
   // 예약하기 버튼 클릭 이벤트 핸들러 수정
   const handleReservation = (e) => {
     e.preventDefault(); // 폼 전송 기본 동작을 방지합니다.
-    if (totalPeople > 20) {
+    if (totalPeople >= 20) {
       // 20명 초과인 경우에만 예약 가능
       if (
         totalPeople > 0 &&

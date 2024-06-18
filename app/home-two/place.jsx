@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const Place = () => {
   return (
@@ -9,17 +9,30 @@ const Place = () => {
             <div className="place__two-left">
               <div className="place__two-left-image">
                 <div className="place__two-left-image-item">
-                  <img src="/img/hotel/hotel-6.jpg" alt="" />
+                  <img
+                    src="/img/SiteImage/place2.jpg"
+                    alt=""
+                    className="rounded-image"
+                  />
                 </div>
                 <div className="place__two-left-image-item mt-60">
-                  <img src="/img/hotel/hotel-7.jpg" alt="" />
+                  <img
+                    src="/img/SiteImage/place1.jpg"
+                    alt=""
+                    className="rounded-image"
+                  />
                 </div>
                 <div className="place__two-left-image-item">
-                  <img src="/img/hotel/hotel-8.jpg" alt="" />
+                  <img
+                    src="/img/SiteImage/place3.jpg"
+                    alt=""
+                    className="rounded-image"
+                  />
                 </div>
               </div>
             </div>
           </div>
+
           <div className="col-xl-5 col-lg-6">
             <div className="place__two-title">
               <span className="subtitle__one">Awesome Place</span>

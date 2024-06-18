@@ -1,6 +1,6 @@
-'use client';
-import Image from 'next/image';
-import Offers from '../../public/testimg/aboutimg2.jpeg';
+"use client";
+import Image from "next/image";
+import Offers from "../../public/img/SiteImage/SubImage2.png";
 
 const Offerarea = () => {
   return (

@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import Link from "next/link";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import ModalVideo from 'react-modal-video';
+import ModalVideo from "react-modal-video";
 
 const Banner = () => {
   // const [isOpen, setOpen] = useState(false);
@@ -24,7 +24,7 @@ const Banner = () => {
               </h2>
               <Link
                 className="theme-btn"
-                style={{ marginTop: '4%' }}
+                style={{ marginTop: "4%" }}
                 href="/about"
               >
                 자세히보기<i className="fal fa-long-arrow-right"></i>
@@ -48,7 +48,11 @@ const Banner = () => {
           </div>
           <div className="col-xl-5 col-lg-5 lg-mb-60">
             <div className="banner__three-right">
-              <img className="img__full" src="/example1.png" alt="" />
+              <img
+                className="img__full"
+                src="/img/SiteImage/MainImage2.png"
+                alt=""
+              />
             </div>
           </div>
         </div>

@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "SungDongGothic";
+  font-style: normal;
+  font-weight: 700;
+  src: url("//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicB.woff2")
+      format("woff2"),
+    url("//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicB.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "SungDongGothic";
+  font-style: normal;
+  font-weight: 800;
+  src: url("//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff2")
+      format("woff2"),
+    url("//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff")
+      format("woff");
+}
+
+/* 최우선으로 적용하기 위해 !important 사용 */
+.sungdonggothic * {
+  font-family: "SungDongGothic", sans-serif !important;
+}

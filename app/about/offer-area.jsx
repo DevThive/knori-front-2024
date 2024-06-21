@@ -12,7 +12,8 @@ const Offerarea = () => {
               <div className="offers__area-title">
                 <span className="subtitle__one">Company Offers</span>
                 <h2>
-                  추억을 빚고 행복을 담는다 <br /> 케이놀이 문화재단
+                  추억을 빚고 행복을 담는다 <br />
+                  <br />
                 </h2>
                 <p>
                   케이놀이문화재단은 수백년 전통 놀이의 가치를 현대적 감각으로

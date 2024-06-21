@@ -1,4 +1,7 @@
 const Currentblogitems = ({ currentBlogItems }) => {
+  const extractTitle = (caption) => {
+    return caption.replace(/#[^\s#]+/g, "").trim();
+  };
   return (
     <div className="container">
       <div className="row">
@@ -16,7 +19,7 @@ const Currentblogitems = ({ currentBlogItems }) => {
                 <div className="blog__two-item-content">
                   {/* <h6>Post by - {data.id}</h6> */}
                   <h4>
-                    <a href={data.permalink}>{data.caption}</a>
+                    <a href={data.permalink}>{extractTitle(data.caption)}</a>
                   </h4>
                   <a className="simple-btn" href={data.permalink}>
                     <i className="far fa-chevron-right"></i>자세히보기

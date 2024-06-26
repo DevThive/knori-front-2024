@@ -35,6 +35,9 @@ const Casino = ({ currentClassItems }) => {
                       <h5>
                         <span>{item.price}원/1인</span>
                       </h5>
+                      <h5>
+                        <span>{item.etcprice}</span>
+                      </h5>
 
                       <div className="deluxe__three-item-image-content-bottom">
                         <a

@@ -46,8 +46,8 @@ const BlogSideBar = () => {
                 {" "}
                 {/* key를 추가하고, Fragment 대신 div 사용 */}
                 <div className="all__sidebar-item-post-item-image">
-                  <a href="/blog-details/1">
-                    <img src="/img/blog/post-1.jpg" alt="" />
+                  <a href={`/class-details/${data.id}`}>
+                    <img src={data.photo} alt="" />
                   </a>
                 </div>
                 <div className="all__sidebar-item-post-item-content">

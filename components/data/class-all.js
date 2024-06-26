@@ -6,15 +6,18 @@ async function classlist() {
     const response = await axios.get("https://api.knori.or.kr/class");
     let data = response.data;
 
+    console.log(response.data);
     data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     const formattedData = data.map((item) => {
       const pureImageUrl = item.photo.replace(/[\[\]\"\\]/g, "");
       const createdAtDate = new Date(item.createdAt);
+
       return {
         id: item.id,
         title: item.title,
         price: item.price,
+        etcprice: item.etcprice,
         content: item.content,
         photo: pureImageUrl,
         state: "미정",

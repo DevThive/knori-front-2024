@@ -25,7 +25,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
           이곳은 전통 속에서 현대적 감성을 발견하며 마음의 안식을 찾는 곳입니다.
         </p>
         <div className="header__area-menubar-right-box-sidebar-popup-image">
-          <img src="/img/bar.jpg" alt="" />
+          <img src="/img/SiteImage/SubImage1.jpeg" alt="" />
         </div>
         <div className="header__area-menubar-right-box-sidebar-popup-contact">
           <h4 className="mb-30">Contact Info</h4>

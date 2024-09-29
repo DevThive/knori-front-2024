@@ -19,8 +19,10 @@ const contact = () => {
     const fetchInquiries = async () => {
       try {
         const response = await instance.get("/contact/contactlists");
-        setInquiries(response.data);
-        // console.log(response.data);
+        const sortedInquiries = response.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setInquiries(sortedInquiries);
       } catch (error) {
         console.error("문의 리스트를 불러오는데 실패했습니다.", error);
       }

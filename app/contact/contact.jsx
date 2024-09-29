@@ -279,7 +279,7 @@ const contact = () => {
               width: "100%",
               height: "100%",
               backgroundColor: "rgba(0,0,0,0.5)", // 어두운 오버레이 배경
-              zIndex: 1000, // 모달 창보다 한 단계 아래에 위치하도록 설정
+              zIndex: 10000, // 모달 창보다 한 단계 아래에 위치하도록 설정
             }}
           ></div>
           <div
@@ -294,7 +294,7 @@ const contact = () => {
               boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
               width: "50%",
               maxWidth: "600px",
-              zIndex: 1001, // 오버레이 위에 모달 창이 표시되도록 설정
+              zIndex: 9999, // 오버레이 위에 모달 창이 표시되도록 설정
             }}
           >
             {/* 비밀번호 입력 모달 UI 구현 */}

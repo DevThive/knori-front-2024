@@ -23,10 +23,7 @@ const Servicestwo = () => {
                 </div>
                 <div className="services__two-item-content">
                   <h4>치유의 시간</h4>
-                  <p>
-                    도자기 원데이 클래스는 스트레스 해소와 내면의 평화를 찾는 데
-                    도움을 줍니다.
-                  </p>
+                  <p>스트레스 해소와 내면의 평화를 찾는 데 도움을 줍니다.</p>
                   <br />
                   <p>
                     진흙의 촉감과 창조의 즐거움을 통해 마음과 몸의 안정을
@@ -43,15 +40,14 @@ const Servicestwo = () => {
                   <Image alt="" layout="responsive" src={classRoomPhoto} />
                 </div>
                 <div className="services__two-item-content">
-                  <h4>전문적인 강사진</h4>
+                  <h4>사회 공헌 프로그램</h4>
                   <p>
                     도자기 만들기와 전통놀이를 통해 스트레스를 스스로 조절할 수
                     있는 방법을 배울 수 있습니다.
                   </p>
                   <br />
                   <p>
-                    강사진은 각 분야의 전문가로 구성되어 있어 높은 수준의 교육을
-                    제공합니다.
+                    다양한 프로그램을 통해 모두가 함께하는 기회를 제공합니다.
                   </p>
                 </div>
               </div>
@@ -64,15 +60,15 @@ const Servicestwo = () => {
                   <Image alt="" layout="responsive" src={searchPhoto} />
                 </div>
                 <div className="services__two-item-content">
-                  <h4>연계 학습</h4>
+                  <h4>스마트한 전통문화</h4>
                   <p>
-                    양주관아지, 양주향교, 양주시립회암사지박물관 & 회암사지 등과
-                    연계한 학습 프로그램을 제공합니다.
+                    AI와 전통이 만나 유일하고 창의적인 캐릭터를 탑재한 나만의
+                    도자기를 만들 수 있습니다.
                   </p>
                   <br />
                   <p>
-                    이를 통해 도자기 체험과 더불어 지역 문화와 역사를 배울 수
-                    있습니다.
+                    이를 통해 생활에서 적용 가능한 AI를 직접 본인 작품에
+                    연결하는 새로운 경험을 해 보실 수 있습니다.
                   </p>
                 </div>
               </div>
@@ -85,16 +81,13 @@ const Servicestwo = () => {
                   <Image alt="" layout="responsive" src={Locaion1} />
                 </div>
                 <div className="services__two-item-content">
-                  <h4>수도권 내 위치</h4>
+                  <h4>가위바위보 연구소</h4>
                   <p>
-                    접근성이 뛰어나 도자기 체험을 더욱 편리하게 즐길 수
-                    있습니다.
+                    반만년 구전되어 오고 민중 사이에 전하여 내려오는 고유한
+                    우리나라 놀이를 찾아내며 기록하는 연구소입니다.
                   </p>
                   <br />
-                  <p>
-                    도자기 체험을 더욱 편리하게 즐기실 수 있도록 접근성이 뛰어난
-                    장소에 위치해 있습니다.
-                  </p>
+                  <p>전통 놀이의 의미와 가치를 탐구하는 공간입니다.</p>
                 </div>
               </div>
             </div>

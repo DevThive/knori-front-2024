@@ -30,6 +30,7 @@ const InquiryModal = ({ show, onClose, onSubmit }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        zIndex: 1000, // 추가된 부분: 모달의 z-index 설정
       }}
     >
       <div
@@ -40,6 +41,8 @@ const InquiryModal = ({ show, onClose, onSubmit }) => {
           boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
           width: "60%",
           maxWidth: "600px",
+          zIndex: 1001, // 모달 내용의 z-index 설정
+          position: "relative", // 부모 요소에 relative 추가
         }}
       >
         <form

@@ -2978,7 +2978,7 @@ Menu Bar
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 99999;
+  z-index: 999;
   border-bottom: 1px solid var(--border-color-1);
   padding: 0 50px;
 }

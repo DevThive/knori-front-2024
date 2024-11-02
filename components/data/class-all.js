@@ -17,6 +17,7 @@ async function classlist() {
         id: item.id,
         title: item.title,
         price: item.price,
+        price2: item.price2,
         etcprice: item.etcprice,
         content: item.content,
         photo: pureImageUrl,

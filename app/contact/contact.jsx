@@ -271,17 +271,7 @@ const contact = () => {
       {showPasswordModal && (
         /* 비밀번호 입력 모달 UI 구현 */
         <>
-          <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              backgroundColor: "rgba(0,0,0,0.5)", // 어두운 오버레이 배경
-              zIndex: 10000, // 모달 창보다 한 단계 아래에 위치하도록 설정
-            }}
-          ></div>
+      
           <div
             style={{
               position: "fixed",
